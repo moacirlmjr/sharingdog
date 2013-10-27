@@ -2,12 +2,12 @@ package br.com.sd.util;
 
 import java.util.ArrayList;
 
-import sun.security.provider.MD5;
 import br.com.sd.modelo.Cachorro;
 import br.com.sd.modelo.Porte;
 import br.com.sd.modelo.Raca;
 import br.com.sd.modelo.Role;
 import br.com.sd.modelo.Usuario;
+import br.com.sd.security.SegurancaUtil;
 
 public class ModeloUtil {
 	
@@ -33,7 +33,7 @@ public class ModeloUtil {
 		
 		Usuario danyllo = new Usuario("Danyllo Wagner",
 				"danyllo_wagner@hotmail.com", "79009677", "@DanylloWagner",
-				"danyllo", "danyllo123", roleUserReceptor);
+				"danyllo", SegurancaUtil.criptografar("danyllo123"), roleUserReceptor);
 		Usuario anelise = new Usuario("Anelise Trigo",
 				"anelisecid@hotmail.com", "80339677", "@AneliseCid",
 				"anelise", "anelise123", roleUserReceptor);
@@ -108,11 +108,11 @@ public class ModeloUtil {
 				"felipebr@hotmail.com", "34325456", "@FilipeComSoc",
 				"felipe", "felipe123", roleUserDoador);
 		Usuario luis = new Usuario("Luis Claudio",
-				"jojo55@hotmail.com", "33310100", "@Jojo55CG",
+				"cyrillocav@hotmail.com", "33310100", "@cyrillocav",
 				"luis", "luis123", roleUserDoador);
-		Usuario joselia = new Usuario("Joselia Albuquerque",
-				"jojo55@hotmail.com", "33310100", "@Jojo55CG",
-				"joselia", "joselia123", roleUserDoador);
+		Usuario nilton = new Usuario("Nilton Batista",
+				"nbmj@hotmail.com", "32321000", "@NiltonMoreno",
+				"nilton", "nilton123", roleUserDoador);
 
 		
 		usuarios.add(admin);
