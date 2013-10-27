@@ -1,13 +1,15 @@
 package br.com.sd.modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+import br.com.sd.modelo.enumerator.Sexo;
 import br.com.sd.modelo.interfaces.Generic;
 
 @Entity
@@ -26,6 +28,9 @@ public class Usuario implements Generic {
 	private String email;
 	private String telefone;
 	private String Twitter;
+	
+	@Enumerated(EnumType.STRING)
+	private Sexo sexo;
 	private String login;
 	private String senha;
 
@@ -36,13 +41,14 @@ public class Usuario implements Generic {
 
 	}
 
-	public Usuario(String nome, String email, String telefone, String twitter,
+	public Usuario(String nome, String email, String telefone, String twitter, Sexo sexo,
 			String login, String senha, Role role) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
-		Twitter = twitter;
+		this.Twitter = twitter;
+		this.sexo=sexo;
 		this.login = login;
 		this.senha = senha;
 		this.role = role;
@@ -93,6 +99,14 @@ public class Usuario implements Generic {
 	public void setTwitter(String twitter) {
 		Twitter = twitter;
 	}
+	
+	public Sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
 
 	public String getLogin() {
 		return login;
@@ -122,11 +136,16 @@ public class Usuario implements Generic {
 		this.nome = nome;
 	}
 
-	public boolean isUser() {
-		return (this.role.getRole() == "User" || this.role.getId() == 1);
+	public boolean isAdmin() {
+		return (this.role.getRole() == "Admin" || this.role.getId() == 1);
 	}
 
-	public boolean isAdmin() {
-		return (this.role.getRole() == "User" || this.role.getId() == 2);
+	public boolean isUserReceptor() {
+		return (this.role.getRole() == "UsuarioReceptor" || this.role.getId() == 2);
 	}
+
+	public boolean isUserDoador() {
+		return (this.role.getRole() == "UsuarioDoador" || this.role.getId() == 3);
+	}
+
 }

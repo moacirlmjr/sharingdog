@@ -7,6 +7,7 @@ import br.com.sd.modelo.Porte;
 import br.com.sd.modelo.Raca;
 import br.com.sd.modelo.Role;
 import br.com.sd.modelo.Usuario;
+import br.com.sd.modelo.enumerator.Sexo;
 import br.com.sd.security.SegurancaUtil;
 
 public class ModeloUtil {
@@ -28,90 +29,90 @@ public class ModeloUtil {
 		roles.add(roleUserDoador);
 		
 		Usuario admin = new Usuario("Administrador",
-				"administrador@sharingdog.com", "77665544", "@SharingDog",
+				"administrador@sharingdog.com", "77665544", "@SharingDog",  Sexo.Masculino,
 				"admin", "admin123", roleAdmin);
 		
 		Usuario danyllo = new Usuario("Danyllo Wagner",
-				"danyllo_wagner@hotmail.com", "79009677", "@DanylloWagner",
+				"danyllo_wagner@hotmail.com", "79009677", "@DanylloWagner", Sexo.Masculino,
 				"danyllo", SegurancaUtil.criptografar("danyllo123"), roleUserReceptor);
 		Usuario anelise = new Usuario("Anelise Trigo",
-				"anelisecid@hotmail.com", "80339677", "@AneliseCid",
+				"anelisecid@hotmail.com", "80339677", "@AneliseCid", Sexo.Feminino,
 				"anelise", "anelise123", roleUserReceptor);
 		Usuario roberto = new Usuario("Roberto Felicio",
-				"prof.roberto.posse@hotmail.com", "81214567", "@Roberto_Felicio",
+				"prof.roberto.posse@hotmail.com", "81214567", "@Roberto_Felicio",  Sexo.Masculino,
 				"roberto", "roberto123", roleUserReceptor);
-		Usuario maria = new Usuario("Maria Joaquina",
-				"maria_joaquina@gmail.com", "99887766", "@Maria-Joaquina",
+		Usuario maria = new Usuario("Maria Joaquina", 
+				"maria_joaquina@gmail.com", "99887766", "@Maria-Joaquina", Sexo.Feminino,
 				"maria", "maria123", roleUserReceptor);
 		Usuario joao = new Usuario("Joao Santos",
-				"joaozito@gmail.com", "88776655", "@JoaozitoJP",
+				"joaozito@gmail.com", "88776655", "@JoaozitoJP",  Sexo.Masculino,
 				"joao", "joao123", roleUserReceptor);
 		
 		Usuario roberta = new Usuario("Roberta Albuquerque",
-				"betabahia@gmail.com", "98765432", "@BetinhaBA",
+				"betabahia@gmail.com", "98765432", "@BetinhaBA", Sexo.Feminino,
 				"roberta", "roberta123", roleUserDoador);
 		Usuario marcos = new Usuario("Marcos Vinicius",
-				"marcus_vinicius@yahoo.com.br", "87654321", "@MarcusNiteroi",
+				"marcus_vinicius@yahoo.com.br", "87654321", "@MarcusNiteroi",  Sexo.Masculino,
 				"marcos", "marcos123", roleUserDoador);
 		Usuario patricia = new Usuario("Patricia Maia",
-				"patricinharj@yahoo.com.br", "87654321", "@PatyGataRJ",
+				"patricinharj@yahoo.com.br", "87654321", "@PatyGataRJ", Sexo.Feminino,
 				"patricia", "patricia123", roleUserDoador);
 		Usuario edson = new Usuario("Edson Lisboa",
-				"edson_lisboa@yahoo.com.br", "65569887", "@EdinhoBH",
+				"edson_lisboa@yahoo.com.br", "65569887", "@EdinhoBH",  Sexo.Masculino,
 				"edson", "edson123", roleUserDoador);
 		Usuario dorgival = new Usuario("Dorgival Junior",
-				"dorgivaljunior@golnaweb.com.br", "65569887", "@JuninhoGol",
+				"dorgivaljunior@golnaweb.com.br", "65569887", "@JuninhoGol",  Sexo.Masculino,
 				"dorgival", "dorgival123", roleUserDoador);
 		Usuario jairo = new Usuario("Jairo Albuquerque",
-				"jairoconstrutor@ig.com.br", "32325454", "@JairoCimentoCG",
+				"jairoconstrutor@ig.com.br", "32325454", "@JairoCimentoCG",  Sexo.Masculino,
 				"jairo", "jairo123", roleUserDoador);
 		Usuario josefa = new Usuario("Josefa Leite",
-				"zelita-leite@otmail.com", "32325454", "@ZeliaCG",
+				"zelita-leite@otmail.com", "32325454", "@ZeliaCG", Sexo.Feminino,
 				"josefa", "josefa123", roleUserDoador);
 		Usuario virginia = new Usuario("Maria Virginia",
-				"vininha@hotmail.com", "33310100", "@Vininha85",
+				"vininha@hotmail.com", "33310100", "@Vininha85", Sexo.Feminino,
 				"virginia", "virginia123", roleUserDoador);
 		Usuario antonio = new Usuario("Antonio Carlos",
-				"acarloscid@uol.com", "32478110", "@ACarlosCID",
+				"acarloscid@uol.com", "32478110", "@ACarlosCID",  Sexo.Masculino,
 				"antonio", "antonio123", roleUserDoador);
 		Usuario mauro = new Usuario("Mauro Cesar",
-				"maurinho2000@uol.com", "33294532", "@MaurinhoSurf",
+				"maurinho2000@uol.com", "33294532", "@MaurinhoSurf",  Sexo.Masculino,
 				"mauro", "mauro123", roleUserDoador);
 		Usuario emanuele = new Usuario("Emmanuele Marie",
-				"manu1985@hotmail.com", "88456776", "@ManuEnfermeira",
+				"manu1985@hotmail.com", "88456776", "@ManuEnfermeira", Sexo.Feminino,
 				"emanuele", "emanuele123", roleUserDoador);
 		Usuario rodrigo = new Usuario("Rodrigo Maia",
-				"rodrigo_maia@hotmail.com", "88776655", "@RodrigoMaromba",
+				"rodrigo_maia@hotmail.com", "88776655", "@RodrigoMaromba",  Sexo.Masculino,
 				"rodrigo", "rodrigo123", roleUserDoador);
 		Usuario hadson = new Usuario("Hadson Barbosa",
-				"hadson-ipira@hotmail.com", "88776655", "@HadsonIpira",
+				"hadson-ipira@hotmail.com", "88776655", "@HadsonIpira",  Sexo.Masculino,
 				"hadson", "hadson123", roleUserDoador);
 		Usuario larissa = new Usuario("Larissa Leôncio",
-				"lalinhajp@hotmail.com", "88776655", "@Lalinha-jampa",
+				"lalinhajp@hotmail.com", "88776655", "@Lalinha-jampa", Sexo.Feminino,
 				"larissa", "larissa123", roleUserDoador);
 		Usuario mauricio = new Usuario("Mauricio Linhares",
-				"mauricio-linhares-jp@gmail.com", "88776655", "@MauricioTI",
+				"mauricio-linhares-jp@gmail.com", "88776655", "@MauricioTI",  Sexo.Masculino,
 				"mauricio", "mauricio123", roleUserDoador);
 		Usuario aliandro = new Usuario("Aiandro Dantas",
-				"aliandro@gmail.com", "76544567", "@AliandroDataprev",
+				"aliandro@gmail.com", "76544567", "@AliandroDataprev",  Sexo.Masculino,
 				"aliandro", "aliandro123", roleUserDoador);
 		Usuario joselia = new Usuario("Joselia Albuquerque",
-				"jojo55@hotmail.com", "33310100", "@Jojo55CG",
+				"jojo55@hotmail.com", "33310100", "@Jojo55CG", Sexo.Feminino,
 				"joselia", "joselia123", roleUserDoador);
 		Usuario teresa = new Usuario("Theresa gaiao",
-				"teka2000@yahoo.com", "98987676", "@Tekinha2000",
+				"teka2000@yahoo.com", "98987676", "@Tekinha2000", Sexo.Feminino,
 				"teresa", "teresa123", roleUserDoador);
 		Usuario elizabet = new Usuario("Elizabet Medeiros",
-				"betty@virtual.ufpb.br", "23456789", "@BettyUFPB",
+				"betty@virtual.ufpb.br", "23456789", "@BettyUFPB", Sexo.Feminino,
 				"elizabet", "elizabet123", roleUserDoador);
 		Usuario felipe = new Usuario("Felipe Brasileiro",
-				"felipebr@hotmail.com", "34325456", "@FilipeComSoc",
+				"felipebr@hotmail.com", "34325456", "@FilipeComSoc",  Sexo.Masculino,
 				"felipe", "felipe123", roleUserDoador);
 		Usuario luis = new Usuario("Luis Claudio",
-				"cyrillocav@hotmail.com", "33310100", "@cyrillocav",
+				"cyrillocav@hotmail.com", "33310100", "@cyrillocav",  Sexo.Masculino,
 				"luis", "luis123", roleUserDoador);
 		Usuario nilton = new Usuario("Nilton Batista",
-				"nbmj@hotmail.com", "32321000", "@NiltonMoreno",
+				"nbmj@hotmail.com", "32321000", "@NiltonMoreno",  Sexo.Masculino,
 				"nilton", "nilton123", roleUserDoador);
 
 		
@@ -196,10 +197,10 @@ public class ModeloUtil {
 		racas.add(viralatap);
 		
 		
-		Cachorro yankee = new Cachorro("Yankee", pastorAlemao, edson, RetornoDataUtil.getRandomDataNascimento());
-		Cachorro baleia = new Cachorro("baleia", pastorAlemao, roberta, RetornoDataUtil.getRandomDataNascimento());
-		Cachorro tonhao = new Cachorro("Tonhão", saoBernado, dorgival, RetornoDataUtil.getRandomDataNascimento());
-		Cachorro bilola = new Cachorro("Bilola", saoBernado, jairo, RetornoDataUtil.getRandomDataNascimento());
+		Cachorro yankee = new Cachorro("Yankee", pastorAlemao, edson, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		Cachorro baleia = new Cachorro("baleia", pastorAlemao, roberta, RetornoDataUtil.getRandomDataNascimento(), Sexo.Feminino);
+		Cachorro tonhao = new Cachorro("Tonhão", saoBernado, dorgival, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		Cachorro bilola = new Cachorro("Bilola", saoBernado, jairo, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
 		
 		cachorros.add(yankee);
 		cachorros.add(baleia);
