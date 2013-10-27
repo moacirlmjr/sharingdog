@@ -25,9 +25,10 @@ public class Usuario implements Generic {
 	private String nome;
 	private String email;
 	private String telefone;
+	private String Twitter;
 	private String login;
 	private String senha;
-	
+
 	@OneToOne
 	private Role role;
 
@@ -71,6 +72,14 @@ public class Usuario implements Generic {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public String getTwitter() {
+		return Twitter;
+	}
+
+	public void setTwitter(String twitter) {
+		Twitter = twitter;
 	}
 
 	public String getLogin() {
