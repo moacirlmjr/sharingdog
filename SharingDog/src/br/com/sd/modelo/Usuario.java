@@ -36,6 +36,18 @@ public class Usuario implements Generic {
 
 	}
 
+	public Usuario(String nome, String email, String telefone, String twitter,
+			String login, String senha, Role role) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.telefone = telefone;
+		Twitter = twitter;
+		this.login = login;
+		this.senha = senha;
+		this.role = role;
+	}
+
 	public Integer getId() {
 		return id;
 	}

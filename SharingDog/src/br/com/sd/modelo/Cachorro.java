@@ -10,6 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 import br.com.sd.modelo.interfaces.Generic;
 
 
@@ -37,6 +38,17 @@ public class Cachorro implements Generic {
 	public Cachorro() {
 		super();
 	}
+	
+	public Cachorro(String nome, Raca raca, Usuario dono,
+			Calendar dataNascimento) {
+		super();
+		this.nome = nome;
+		this.raca = raca;
+		this.dono = dono;
+		this.dataNascimento = dataNascimento;
+	}
+
+
 
 	public Integer getId() {
 		return id;
