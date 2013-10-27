@@ -1,7 +1,6 @@
 package br.com.sd.util;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import br.com.sd.modelo.Cachorro;
 import br.com.sd.modelo.Porte;
@@ -123,15 +122,11 @@ public class ModeloUtil {
 		racas.add(pinscher);
 		racas.add(maltes);
 		
-		Calendar d1 = Calendar.getInstance();
-		d1.set(2012, 10, 12);
-		Cachorro yankee = new Cachorro("Yankee", pastorAlemao, edson, d1);
-		d1.set(2011, 06, 11);
-		Cachorro baleia = new Cachorro("baleia", pastorAlemao, roberta, d1);
-		d1.set(2012, 10, 7);
-		Cachorro tonhao = new Cachorro("Tonhão", saoBernado, dorgival, d1);
-		d1.set(2012, 10, 7);
-		Cachorro bilola = new Cachorro("Bilola", saoBernado, jairo, d1);
+		
+		Cachorro yankee = new Cachorro("Yankee", pastorAlemao, edson, RetornoDataUtil.getRandomDataNascimento());
+		Cachorro baleia = new Cachorro("baleia", pastorAlemao, roberta, RetornoDataUtil.getRandomDataNascimento());
+		Cachorro tonhao = new Cachorro("Tonhão", saoBernado, dorgival, RetornoDataUtil.getRandomDataNascimento());
+		Cachorro bilola = new Cachorro("Bilola", saoBernado, jairo, RetornoDataUtil.getRandomDataNascimento());
 		
 		cachorros.add(yankee);
 		cachorros.add(baleia);
