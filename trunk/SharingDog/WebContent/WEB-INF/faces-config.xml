@@ -28,6 +28,11 @@
 			<redirect />
 		</navigation-case>
 		<navigation-case>
+			<from-outcome>contato</from-outcome>
+			<to-view-id>public/contato.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
 			<from-outcome>cadastroUsuarioPublico</from-outcome>
 			<to-view-id>public/usuario.jsf</to-view-id>
 			<redirect />
