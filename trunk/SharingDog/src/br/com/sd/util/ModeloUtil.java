@@ -113,7 +113,19 @@ public class ModeloUtil {
 				"luis", "luis123", roleUserDoador);
 		Usuario nilton = new Usuario("Nilton Batista",
 				"nbmj@hotmail.com", "32321000", "@NiltonMoreno",  Sexo.Masculino,
-				"nilton", "nilton123", roleUserDoador);
+				"nilton", "nilton123", roleUserDoador);		
+		Usuario flavio = new Usuario("Flavio Mota",
+				"flavio_motaj@hotmail.com", "87655678", "@FlavioNikiti",  Sexo.Masculino,
+				"flavio", "flavio123", roleUserDoador);
+		Usuario joaozao = new Usuario("Joao Loureiro",
+				"joaozitocg@hotmail.com", "99887766", "@Joao1990",  Sexo.Masculino,
+				"joao", "joao123", roleUserDoador);
+		Usuario monique = new Usuario("Monique Nascimento",
+				"moniquedf@hotmail.com", "88777788", "@NikiDF1984",  Sexo.Feminino,
+				"monique", "monique123", roleUserDoador);
+		Usuario gabriela = new Usuario("Gabriela Albuquerque",
+				"gabyalbuquerqie@hotmail.com", "33359609", "@Gaby2000",  Sexo.Feminino,
+				"gabriela", "gabriela123", roleUserDoador);
 
 		
 		usuarios.add(admin);
@@ -128,8 +140,29 @@ public class ModeloUtil {
 		usuarios.add(edson);
 		usuarios.add(dorgival);
 		usuarios.add(jairo);
+		usuarios.add(josefa);
+		usuarios.add(virginia);
+		usuarios.add(antonio);
+		usuarios.add(mauro);
+		usuarios.add(emanuele);
+		usuarios.add(rodrigo);
+		usuarios.add(hadson);
+		usuarios.add(mauricio);
+		usuarios.add(aliandro);
+		usuarios.add(larissa);
+		usuarios.add(joselia);
+		usuarios.add(teresa);
+		usuarios.add(elizabet);
+		usuarios.add(felipe);
+		usuarios.add(luis);
+		usuarios.add(nilton);
+		usuarios.add(flavio);
+		usuarios.add(joaozao);
+		usuarios.add(monique);
+		usuarios.add(gabriela);
+
 		
-		
+				
 		Porte grande = new Porte("Grande");
 		Porte medio = new Porte("medio");
 		Porte pequeno = new Porte("pequeno");
