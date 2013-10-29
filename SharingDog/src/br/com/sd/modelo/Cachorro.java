@@ -21,12 +21,14 @@ import br.com.sd.modelo.interfaces.Generic;
 @Entity
 @Table(name = "cachorro")
 @NamedQueries(value = { 
-		@NamedQuery(name = "Porte.findAllCachorrosOrdenadosRaca", query = "select c from cachorro c order by raca_id asc, nome asc") 
+		@NamedQuery(name = "Cachorro.findAllCachorrosOrdenadosRaca", query = "select c from cachorro c order by raca_id asc, nome asc"),
+		@NamedQuery(name = "Cachorro.findAllCachorrosuser", query = "select c from cachorro c where usuario_id = :uid")
 		})
 public class Cachorro implements Generic {
 
 	private static final long serialVersionUID = 1L;
-	public static final String findAllCachorrosOrdenadosRaca = "Porte.findAllCachorrosOrdenadosRaca";
+	public static final String findAllCachorrosOrdenadosRaca = "Cachorro.findAllCachorrosOrdenadosRaca";
+	public static final String findAllCachorrosUser = "Cachorro.findAllCachorrosuser";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
