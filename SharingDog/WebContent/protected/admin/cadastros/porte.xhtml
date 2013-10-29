@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../_template.xhtml">
+
+
+	<ui:define name="conteudo">
+		<h:form id="porte">
+			<p:messages autoUpdate="true" />
+			<p:growl autoUpdate="true" />
+
+			<p:fieldset legend="Dados do Porte da Raça">
+				<p:message for="descricao" id="messageNome" />
+
+				<p:panelGrid columns="2">
+
+					<h:outputLabel value="Descrição: " for="descricao" />
+					<p:inputText id="descricao" value="#{porteBean.porte.porte}"
+						required="true" requiredMessage="Descrição Obrigatória">
+						<f:validateLength minimum="1" maximun="20" />
+						<f:ajax event="blur" render="messageNome" />
+					</p:inputText>
+				
+				</p:panelGrid>
+				<p:commandButton value="Gravar" action="#{porteBean.gravar}" />
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
+
+</html>

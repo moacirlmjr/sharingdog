@@ -16,10 +16,12 @@ import br.com.sd.modelo.Usuario;
 @RequestScoped
 public class UsuarioBean {
 
-	private Usuario usuario = new Usuario();
-	private Integer roleID = 1;
+	private Usuario usuario;
+	private Integer roleID;
 	
 	public UsuarioBean(){
+		usuario= new Usuario();
+		roleID = 1;
 		
 	}
 

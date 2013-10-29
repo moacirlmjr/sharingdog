@@ -1,6 +1,5 @@
 package br.com.sd.mbeans;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,9 +18,13 @@ import br.com.sd.util.JSFMessageUtil;
 @ManagedBean
 public class LoginBean {
 
-	private Usuario usuario = new Usuario();
-	
-	public Usuario getUsuario(){
+	private Usuario usuario;
+
+	public LoginBean() {
+		usuario = new Usuario();
+	}
+
+	public Usuario getUsuario() {
 		return usuario;
 	}
 
@@ -49,7 +52,8 @@ public class LoginBean {
 	public Usuario isValidLogin(String login, String senha) {
 
 		Usuario user = findUserByLogin(login);
-		if (user == null || (!SegurancaUtil.criptografar(user.getSenha()).equals(senha))) {
+		if (user == null
+				|| (!SegurancaUtil.criptografar(user.getSenha()).equals(senha))) {
 			return null;
 		}
 
@@ -66,7 +70,15 @@ public class LoginBean {
 			HttpServletRequest request = (HttpServletRequest) context
 					.getExternalContext().getRequest();
 			request.getSession().setAttribute("usuario", user);
-			return user.isAdmin() ? "relatorioUsuarios" : "checkin";
+			if (user.isAdmin()){
+				return "relatorioUsuarios";
+			}
+			else if (user.isUserReceptor()){
+				return "";				
+			}
+			else if (user.isUserDoador()){
+				return "";
+			}		
 		}
 
 		JSFMessageUtil.sendErrorMessageToUser("Verifique seu email/password");
