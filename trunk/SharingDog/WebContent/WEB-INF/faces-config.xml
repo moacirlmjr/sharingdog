@@ -6,8 +6,7 @@
 	version="2.0">
 
 	<!-- Navegacoes na pasta USER-PUBLIC -->
-	<navigation-rule>
-	
+	<navigation-rule>	
 	
 		<navigation-case>
 			<from-outcome>login</from-outcome>
@@ -43,17 +42,30 @@
 
 		<!-- Navegacoes na pasta USER-RECEPTOR -->
 		<navigation-case>
-			<from-outcome>reserva</from-outcome>
-			<to-view-id>/protected/user/cadastros/reserva.jsf</to-view-id>
+			<from-outcome>dadosDoUsuarioReceptor</from-outcome>
+			<to-view-id>/protected/userReceptor/relatorios/relDadosUser.jsf</to-view-id>
 			<redirect />
-		</navigation-case>
+		</navigation-case>	
+		
+		
 
 		<!-- Navegacoes na pasta USER-DONOR -->
 		<navigation-case>
-			<from-outcome>reserva</from-outcome>
-			<to-view-id>/protected/user/cadastros/reserva.jsf</to-view-id>
+			<from-outcome>cachorro</from-outcome>
+			<to-view-id>/protected/userDonor/cadastros/cachorro.jsf</to-view-id>
+			<redirect />
+		</navigation-case>		
+		<navigation-case>
+			<from-outcome>relatorioCachorrosUsuario</from-outcome>
+			<to-view-id>/protected/userDonor/relatorios/relCachorrosUser.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>dadosDoUsuarioDonor</from-outcome>
+			<to-view-id>/protected/userDonor/relatorios/relDadosUser.jsf</to-view-id>
+			<redirect />
+		</navigation-case>		
+		
 
 
 		<!-- Navegacoes na pasta USER-ADMIN -->

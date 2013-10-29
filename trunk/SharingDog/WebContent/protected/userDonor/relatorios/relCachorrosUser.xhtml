@@ -12,7 +12,7 @@
 	<ui:define name="conteudo">
 
 		<p:fieldset legend="Relatorio de Cachorros">
-			<p:dataTable value="#{cachorroBean.cachorros}" var="raca"
+			<p:dataTable value="#{cachorroBean.CachorrosUsuario}" var="cachorro"
 				paginator="true" rows="4">
 				<p:column>
 					<f:facet name="header">Identificador</f:facet>
@@ -35,15 +35,7 @@
 				<p:column>
 					<f:facet name="header">Sexo</f:facet>
 					<h:outputText value="#{cachorro.sexo}" />
-				</p:column>	
-				<p:column>
-					<f:facet name="header">Doador</f:facet>
-					<h:outputText value="#{cachorro.dono.nome}" />
 				</p:column>
-				<p:column>
-					<f:facet name="header">Telefone</f:facet>
-					<h:outputText value="#{cachorro.dono.telefone}" />
-				</p:column>			
 			</p:dataTable>
 		</p:fieldset>
 	</ui:define>
