@@ -5,8 +5,10 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
 	version="2.0">
 
-	<!-- Navegacoes na pasta PUBLIC -->
+	<!-- Navegacoes na pasta USER-PUBLIC -->
 	<navigation-rule>
+	
+	
 		<navigation-case>
 			<from-outcome>login</from-outcome>
 			<to-view-id>/public/login.jsf</to-view-id>
@@ -39,14 +41,14 @@
 		</navigation-case>
 
 
-		<!-- Navegacoes na pasta USERRECEPTOR -->
+		<!-- Navegacoes na pasta USER-RECEPTOR -->
 		<navigation-case>
 			<from-outcome>reserva</from-outcome>
 			<to-view-id>/protected/user/cadastros/reserva.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 
-		<!-- Navegacoes na pasta USERDONOR -->
+		<!-- Navegacoes na pasta USER-DONOR -->
 		<navigation-case>
 			<from-outcome>reserva</from-outcome>
 			<to-view-id>/protected/user/cadastros/reserva.jsf</to-view-id>
@@ -54,60 +56,25 @@
 		</navigation-case>
 
 
-		<!-- Navegacoes na pasta ADMIN -->
+		<!-- Navegacoes na pasta USER-ADMIN -->
 		<navigation-case>
 			<from-outcome>cadastroUsuario</from-outcome>
 			<to-view-id>/protected/admin/cadastros/usuario.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>cadastroCategoriaQuarto</from-outcome>
-			<to-view-id>/protected/admin/cadastros/categoriaQuarto.jsf</to-view-id>
+			<from-outcome>relatorioRacas</from-outcome>
+			<to-view-id>/protected/admin/relatorios/relRacas.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>cadastroQuarto</from-outcome>
-			<to-view-id>/protected/admin/cadastros/quarto.jsf</to-view-id>
+			<from-outcome>relatorioPortes</from-outcome>
+			<to-view-id>/protected/admin/relatorios/relPortes.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>cadastroOcupacao</from-outcome>
-			<to-view-id>/protected/admin/cadastros/checkInUser.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>relatorioReservas</from-outcome>
-			<to-view-id>/protected/admin/relatorios/relReservas.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>relatorioReservasAtuais</from-outcome>
-			<to-view-id>/protected/admin/relatorios/relReservasAtuais.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>relatorioReservasCanceladas</from-outcome>
-			<to-view-id>/protected/admin/relatorios/relReservasCanceladas.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>relatorioOcupacoes</from-outcome>
-			<to-view-id>/protected/admin/relatorios/relOcupacoes.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>relatorioOcupacoesAtuais</from-outcome>
-			<to-view-id>/protected/admin/relatorios/relOcupacoesAtuais.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>relatorioQuartos</from-outcome>
-			<to-view-id>/protected/admin/relatorios/relQuartos.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>relatorioCategoriaQuarto</from-outcome>
-			<to-view-id>/protected/admin/relatorios/relCatQuartos.jsf</to-view-id>
+			<from-outcome>relatorioCachorros</from-outcome>
+			<to-view-id>/protected/admin/relatorios/relCachorros.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>
@@ -115,11 +82,7 @@
 			<to-view-id>/protected/admin/relatorios/relUsuarios.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
-		<navigation-case>
-			<from-outcome>relatorioFinancas</from-outcome>
-			<to-view-id>/protected/admin/relatorios/relFinancas.jsf</to-view-id>
-			<redirect />
-		</navigation-case>
+		
 	</navigation-rule>
 
 	<lifecycle>

@@ -8,6 +8,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -18,12 +20,13 @@ import br.com.sd.modelo.interfaces.Generic;
 
 @Entity
 @Table(name = "cachorro")
+@NamedQueries(value = { 
+		@NamedQuery(name = "Porte.findAllCachorrosOrdenadosRaca", query = "select c from cachorro c order by raca_id asc, nome asc") 
+		})
 public class Cachorro implements Generic {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	public static final String findAllCachorrosOrdenadosRaca = "Porte.findAllCachorrosOrdenadosRaca";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

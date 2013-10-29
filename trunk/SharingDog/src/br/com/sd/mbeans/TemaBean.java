@@ -11,11 +11,12 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class TemaBean implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private String tema = "aristo";
+	private String tema;
+	
+	public TemaBean(){
+		tema = "aristo";
+	}
 
 	public String getTema() {
 		return tema;
@@ -25,7 +26,7 @@ public class TemaBean implements Serializable {
 		this.tema = tema;
 	}
 
-	// temas disponÃ­veis dentro do JAR
+	// temas disponíveis dentro do JAR All-themes.jar
 	public List<String> getTemas() {
 		return Arrays.asList("aristo", "black-tie", "blitzer", "bluesky",
 				"casablanca", "cupertino", "dark-hive", "dot-luv", "eggplant",
