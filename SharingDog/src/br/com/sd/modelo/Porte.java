@@ -9,7 +9,7 @@ import javax.persistence.NamedQuery;
 import br.com.sd.modelo.interfaces.Generic;
 
 @Entity
-@NamedQuery(name = "Porte.findAllPortesOrdenados", query = "select p from porte p order by porte asc") 
+@NamedQuery(name = "Porte.findAllPortesOrdenados", query = "select p from Porte p order by porte asc") 
 public class Porte implements Generic {
 
 	private static final long serialVersionUID = 1L;

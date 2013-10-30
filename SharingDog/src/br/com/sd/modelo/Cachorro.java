@@ -19,8 +19,8 @@ import br.com.sd.modelo.interfaces.Generic;
 
 @Entity
 @NamedQueries(value = { 
-		@NamedQuery(name = "Cachorro.findAllCachorrosOrdenadosRaca", query = "select c from cachorro c order by raca_id asc, nome asc"),
-		@NamedQuery(name = "Cachorro.findAllCachorrosuser", query = "select c from cachorro c where usuario_id = :uid")
+		@NamedQuery(name = "Cachorro.findAllCachorrosOrdenadosRaca", query = "select c from Cachorro c order by raca_id asc, nome asc"),
+		@NamedQuery(name = "Cachorro.findAllCachorrosuser", query = "select c from Cachorro c where usuario_id = :uid")
 		})
 public class Cachorro implements Generic {
 
