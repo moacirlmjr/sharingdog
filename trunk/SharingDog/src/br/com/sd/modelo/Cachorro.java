@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -19,7 +18,6 @@ import br.com.sd.modelo.enumerator.Sexo;
 import br.com.sd.modelo.interfaces.Generic;
 
 @Entity
-@Table(name = "cachorro")
 @NamedQueries(value = { 
 		@NamedQuery(name = "Cachorro.findAllCachorrosOrdenadosRaca", query = "select c from cachorro c order by raca_id asc, nome asc"),
 		@NamedQuery(name = "Cachorro.findAllCachorrosuser", query = "select c from cachorro c where usuario_id = :uid")

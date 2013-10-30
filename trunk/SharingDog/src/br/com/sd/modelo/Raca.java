@@ -4,18 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import br.com.sd.modelo.interfaces.Generic;
 
 @Entity
-@Table(name = "raca")
-@NamedQueries(value = {
-		@NamedQuery(name = "Raca.findAllRacasOrdenadas", query = "select r from raca r order by porte_id asc, raca asc")
-		})
+@NamedQuery(name = "Raca.findAllRacasOrdenadas", query = "select r from raca r order by porte_id asc, raca asc")
+
 public class Raca implements Generic {
 
 	

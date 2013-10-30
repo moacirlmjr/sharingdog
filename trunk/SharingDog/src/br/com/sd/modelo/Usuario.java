@@ -8,13 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import br.com.sd.modelo.enumerator.Sexo;
 import br.com.sd.modelo.interfaces.Generic;
 
 @Entity
-@Table(name = "usuario")
-@NamedQuery(name = "User.findUserByLogin", query = "select u from Usuario u where u.login = :login")
+@NamedQuery(name = "User.findUserByLogin", query = "select u from usuario u where u.login = :login")
 public class Usuario implements Generic {
 
 	public static final String FIND_BY_LOGIN = "User.findUserByLogin";
