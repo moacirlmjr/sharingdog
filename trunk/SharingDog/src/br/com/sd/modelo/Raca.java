@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import br.com.sd.modelo.interfaces.Generic;
 
 @Entity
-@NamedQuery(name = "Raca.findAllRacasOrdenadas", query = "select r from raca r order by porte_id asc, raca asc")
+@NamedQuery(name = "Raca.findAllRacasOrdenadas", query = "select r from Raca r order by porte_id asc, raca asc")
 
 public class Raca implements Generic {
 

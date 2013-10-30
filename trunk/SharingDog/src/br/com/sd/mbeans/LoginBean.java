@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Usuario;
-import br.com.sd.security.SegurancaUtil;
 import br.com.sd.util.JSFMessageUtil;
 
 @SessionScoped
@@ -52,8 +51,7 @@ public class LoginBean {
 	public Usuario isValidLogin(String login, String senha) {
 
 		Usuario user = findUserByLogin(login);
-		if (user == null
-				|| (!SegurancaUtil.criptografar(user.getSenha()).equals(senha))) {
+		if ((user == null) || (!(user.getSenha()).equals(senha))) {
 			return null;
 		}
 
@@ -71,13 +69,13 @@ public class LoginBean {
 					.getExternalContext().getRequest();
 			request.getSession().setAttribute("usuario", user);
 			if (user.isAdmin()){
-				return "relatorioUsuarios";
+				return "relatorioCachorros";
 			}
 			else if (user.isUserReceptor()){
-				return "";				
+				return "interesse";				
 			}
 			else if (user.isUserDoador()){
-				return "";
+				return "cachorro";
 			}		
 		}
 

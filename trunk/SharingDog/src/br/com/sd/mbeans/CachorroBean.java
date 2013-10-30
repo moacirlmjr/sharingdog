@@ -5,16 +5,22 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 import javax.servlet.http.HttpServletRequest;
+
 import br.com.sd.modelo.Usuario;
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Cachorro;
 import br.com.sd.modelo.Raca;
 
+@ManagedBean
+@RequestScoped
 public class CachorroBean {
 
 	private Cachorro cachorro;

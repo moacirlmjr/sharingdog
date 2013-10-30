@@ -12,7 +12,7 @@ import br.com.sd.modelo.enumerator.Sexo;
 import br.com.sd.modelo.interfaces.Generic;
 
 @Entity
-@NamedQuery(name = "User.findUserByLogin", query = "select u from usuario u where u.login = :login")
+@NamedQuery(name = "User.findUserByLogin", query = "select u from Usuario u where u.login = :login")
 public class Usuario implements Generic {
 
 	public static final String FIND_BY_LOGIN = "User.findUserByLogin";
