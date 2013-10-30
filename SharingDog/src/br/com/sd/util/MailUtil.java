@@ -4,11 +4,11 @@ package br.com.sd.util;
 
 public class MailUtil {
 
-	/*private static final String ACOOUNT_USER = "myparishotel2013";
-	private static final String MAIL_USER = "myparishotel2013@gmail.com";
-	private static final String MAIL_PWD = "puchostel";
-	private static final String MAIL_TITLE = "RelatÃ³rio de Ocupacao";
-	private static final String MAIL_OWNER = "MyParis Hotel";
+	/*private static final String ACOOUNT_USER = "sharingdog";
+	private static final String MAIL_USER = "sharingdog@gmail.com";
+	private static final String MAIL_PWD = "pucsharingdog";
+	private static final String MAIL_TITLE = "Relatório de Ocupacao";
+	private static final String MAIL_OWNER = "SharingDog";
 
 	@SuppressWarnings("deprecation")
 	public void enviaEmailSimples() throws EmailException {
