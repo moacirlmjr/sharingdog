@@ -27,7 +27,7 @@ public class UserDonorPagesFilter extends AbstractFilter implements Filter {
 			
 		}
 
-		if((!user.isUserDoador() && !user.isAdmin())){
+		if((!user.isUserDoador() && !user.isUserReceptor())){
 			accessDenied(request, response, req);
 			throw new SecurityException();
 		}
