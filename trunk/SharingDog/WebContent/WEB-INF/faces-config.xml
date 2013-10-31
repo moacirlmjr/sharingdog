@@ -81,6 +81,16 @@
 			<redirect />
 		</navigation-case>
 		<navigation-case>
+			<from-outcome>cadastroPorte</from-outcome>
+			<to-view-id>/protected/admin/cadastros/porte.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cadastroRaca</from-outcome>
+			<to-view-id>/protected/admin/cadastros/raca.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
 			<from-outcome>relatorioRacas</from-outcome>
 			<to-view-id>/protected/admin/relatorios/relRacas.jsf</to-view-id>
 			<redirect />

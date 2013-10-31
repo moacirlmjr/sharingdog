@@ -14,16 +14,25 @@
 			<p:messages autoUpdate="true" />
 			<p:growl autoUpdate="true" />
 
-			<p:fieldset legend="Cadastro do Porte da Raça">
+			<p:fieldset legend="Cadastro de Raça">
 
 				<p:panelGrid columns="2">
-					<h:outputLabel value="Porte: " for="descricao" />
-					<p:inputText id="descricao" value="#{porteBean.porte.porte}"
-						required="true" requiredMessage="Porte Obrigatório" title="Digite aqui um novo porte!">
+
+					<h:outputLabel value="Raça: " for="descricao" />
+					<p:inputText id="descricao" value="#{racaBean.raca.raca}"
+						required="true" requiredMessage="Raça Obrigatória" title="Digite aqui uma nova raça!" >
 						<f:validateLength minimum="1" maximun="20" />
 					</p:inputText>
+					
+					<h:outputLabel value="Porte da raça: " for="porteID" />
+					<p:selectOneMenu name="selecaoPorte" id="porteID"
+						value="#{racaBean.porteID}" title="Escolha o porte da raça!">
+						<f:selectItems value="#{porteBean.portes}"
+							var="porte" itemLabel="#{porte.porte}"
+							itemValue="#{porte.id}" />
+					</p:selectOneMenu>
 				
-				<p:commandButton value="Gravar" action="#{porteBean.gravar}" ajax="false" />
+				<p:commandButton value="Gravar" action="#{racaBean.gravar}" ajax="false"/>
 				</p:panelGrid>
 			</p:fieldset>
 		</h:form>

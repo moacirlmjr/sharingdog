@@ -12,8 +12,8 @@
 	<ui:define name="conteudo">
 
 		<p:fieldset legend="Relatorio de Racas">
-			<p:dataTable value="#{racaBean.racas}" var="raca"
-				paginator="true" rows="4">
+			<p:dataTable value="#{racaBean.racas}" var="raca" paginator="true"
+				rows="7">
 				<p:column>
 					<f:facet name="header">Identificador</f:facet>
 					<h:outputText value="#{raca.id}" />

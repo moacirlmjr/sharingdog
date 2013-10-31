@@ -21,10 +21,10 @@
 				<p:panelGrid columns="2">
 
 					<h:outputLabel value="Usuario" for="user" />
-					<p:inputText id="user" value="#{loginBean.usuario.login}" />
+					<p:inputText id="user" value="#{loginBean.usuario.login}" title="Digite aqui seu login!"/>
 
 					<h:outputLabel value="Senha" for="pwd" />
-					<p:password id="pwd" value="#{loginBean.usuario.senha}" />
+					<p:password id="pwd" value="#{loginBean.usuario.senha}" title="Digite aqui sua senha!" />
 
 					<p:commandButton value="Login" action="#{loginBean.validaLogin}" ajax="false" />
 					
