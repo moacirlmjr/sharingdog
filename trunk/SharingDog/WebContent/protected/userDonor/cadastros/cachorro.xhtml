@@ -42,13 +42,13 @@
 
 					<h:outputLabel value="Sexo do animal: " for="sexo" />
 					<p:selectOneMenu name="selecaoSexo" id="sexo"
-						value="#{CachorroBean.cachorro.sexo}">
+						value="#{cachorroBean.cachorro.sexo}">
 						<f:selectItem itemValue="0" itemLabel="selecione..." />
 						<f:selectItem itemValue="Masculino" itemLabel="Masculino" />
 						<f:selectItem itemValue="Feminino" itemLabel="Feminino" />
 					</p:selectOneMenu>
-				</p:panelGrid>
 				<p:commandButton value="Gravar" action="#{cachorroBean.gravar}" />
+				</p:panelGrid>
 			</p:fieldset>
 		</h:form>
 	</ui:define>

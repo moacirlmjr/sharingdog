@@ -19,8 +19,17 @@
 
 		<h:form>
 			<p:menubar>
+				<p:submenu label="Cadastros">
+					<p:menuitem value="Cachorro" action="cadastroCachorro"/>
+				</p:submenu>
+				<p:submenu label="Relatórios">
+					<p:menuitem value="Cachorro"  action="relatorioCachorrosUsuario"/>
+					<p:menuitem value="Recomendações"  />
+
+				</p:submenu>
 				<p:submenu label="Meus dados">
-					<p:menuitem value="Verificar meus dados" action="dadosDoUsuarioReceptor" />
+					<p:menuitem value="Verificar meus dados"
+						action="dadosDoUsuarioDonor" />
 				</p:submenu>
 				<p:submenu label="Sair">
 					<p:menuitem value="Finalizar sessão" action="#{loginBean.logOut}" />

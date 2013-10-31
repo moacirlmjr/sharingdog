@@ -57,7 +57,7 @@
 
 		<!-- Navegacoes na pasta USER-DONOR -->
 		<navigation-case>
-			<from-outcome>cachorro</from-outcome>
+			<from-outcome>cadastroCachorro</from-outcome>
 			<to-view-id>/protected/userDonor/cadastros/cachorro.jsf</to-view-id>
 			<redirect />
 		</navigation-case>		
