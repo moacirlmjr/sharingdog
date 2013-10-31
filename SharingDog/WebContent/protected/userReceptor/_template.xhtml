@@ -20,10 +20,15 @@
 		<h:form>
 			<p:menubar>
 				<p:submenu label="Cadastro">
-					<p:menuitem value="Cachorro" action="cachorro" />					
+					<p:menuitem value="Interesse" action="cachorro" />					
+				</p:submenu>
+				<p:submenu label="Relatórios">
+					<p:menuitem value="Interesse" action="" />	
+					<p:menuitem value="Recomendação" action="" />					
+									
 				</p:submenu>
 				<p:submenu label="Meus dados">
-					<p:menuitem value="Verificar meus dados" action="dadosDoUsuarioDonor" />
+					<p:menuitem value="Verificar meus dados" action="dadosDoUsuarioReceptor" />
 				</p:submenu>
 				<p:submenu label="Sair">
 					<p:menuitem value="Finalizar sessão" action="#{loginBean.logOut}" />
