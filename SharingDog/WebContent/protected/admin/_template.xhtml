@@ -7,7 +7,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>MyParisHotel</title>
+	<title>SharingDog</title>
 </h:head>
 <h:body>
 	<div id="cabecalho">
@@ -20,14 +20,18 @@
 			<p:menubar>
 				<p:submenu label="Cadastros">
 					<p:menuitem value="Usuario" action="cadastroUsuario" />
-					<p:menuitem value="Porte"  />
-					<p:menuitem value="Raça" />					
+					<p:menuitem value="Porte"  action="cadastroPorte" />
+					<p:menuitem value="Raça" action="cadastroRaca"/>					
 				</p:submenu>
 				<p:submenu label="Registros">
 					<p:menuitem value="Usuarios" action="relatorioUsuarios" />
 					<p:menuitem value="Cachorros" action="relatorioCachorros" />
 					<p:menuitem value="Racas" action="relatorioRacas" />
 					<p:menuitem value="Porte" action="relatorioPortes" />
+				</p:submenu>
+				<p:submenu label="Analises">
+					<p:menuitem value="Recomendações" action="relatorioUsuarios" />
+					<p:menuitem value="Interesses" action="relatorioCachorros" />					
 				</p:submenu>
 				<p:submenu label="Sair">
 					<p:menuitem value="Finalizar sessão" action="#{loginBean.logOut}" />
