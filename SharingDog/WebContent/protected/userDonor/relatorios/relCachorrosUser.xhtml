@@ -12,7 +12,7 @@
 	<ui:define name="conteudo">
 
 		<p:fieldset legend="Relatorio de Cachorros">
-			<p:dataTable value="#{cachorroBean.CachorrosUsuario}" var="cachorro"
+			<p:dataTable value="#{cachorroBean.cachorrosUsuario}" var="cachorro"
 				paginator="true" rows="4">
 				<p:column>
 					<f:facet name="header">Identificador</f:facet>
@@ -27,8 +27,12 @@
 					<h:outputText value="#{cachorro.raca.raca}" />
 				</p:column>
 				<p:column>
+					<f:facet name="header">Porte</f:facet>
+					<h:outputText value="#{cachorro.raca.porte.porte}" />
+				</p:column>
+				<p:column>
 					<f:facet name="header">Data de Nascimento</f:facet>
-					<h:outputText value="#{cachorro.dataNascimento}">
+					<h:outputText value="#{cachorro.dataNascimento.time}">
 						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:outputText>
 				</p:column>
