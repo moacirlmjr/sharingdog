@@ -11,13 +11,16 @@
 
 	<ui:define name="conteudo">
 
-		<p:fieldset legend="Meus Dados">
+		<p:fieldset legend="Relatório de Interesses">
 			<h:form id="formPrincipal">
-				<p:dataTable var="interesse" value="#{interesseBean.interessesUsuario}" id="tabelaInteresses">
-					<f:facet name="header">Seus Dados Cadastrados</f:facet>
+				<p:dataTable var="interesse"
+					value="#{interesseBean.interessesUsuario}" id="tabelaInteresses" rows="5" paginator="true">
+					<f:facet name="header">Interesses Cadastrados</f:facet>
 
 					<p:column headerText="Data do Registro">
-						<h:outputText value="#{interesse.dataRegistro}" />
+						<h:outputText value="#{interesse.dataRegistro.time}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
 					</p:column>
 
 					<p:column headerText="Status">
@@ -25,21 +28,22 @@
 					</p:column>
 
 					<p:column headerText="Raca">
-						<h:outputText value="#{interesse.raca.raca}" />
+						<h:outputText value="#{interesse.racasDeInteresse.raca}" />
 					</p:column>
-					
+
 					<p:column headerText="Porte">
-						<h:outputText value="#{interesse.raca.porte.porte}" />
+						<h:outputText value="#{interesse.racasDeInteresse.porte.porte}" />
 					</p:column>
 
 					<p:column headerText="Ações">
-						<p:commandButton value="Inativar" action="#{interesseBean.tornarInativo}" />
+						<p:commandButton value="Inativar"
+							action="#{interesseBean.tornarInativo}">
 						</p:commandButton>
 					</p:column>
 
 				</p:dataTable>
-			</h:form>		
-		
+			</h:form>
+
 		</p:fieldset>
 
 	</ui:define>
