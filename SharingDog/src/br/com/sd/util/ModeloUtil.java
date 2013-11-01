@@ -246,8 +246,8 @@ public class ModeloUtil {
 		
 		Interesse i1 = new Interesse(maria, pinscher);
 		Interesse i2 = new Interesse(gabriela, poodle);
-		Interesse i3 = new Interesse(flavio, pastorAlemao);
-		Interesse i4 = new Interesse(flavio, saoBernado);
+		Interesse i3 = new Interesse(danyllo, pastorAlemao);
+		Interesse i4 = new Interesse(danyllo, saoBernado);
 		
 		interesses.add(i1);
 		interesses.add(i2);
@@ -258,7 +258,7 @@ public class ModeloUtil {
 		cachorrosRec.add(yankee);
 		cachorrosRec.add(baleia);
 		
-		Recomendacao r1 = new Recomendacao(i1, cachorrosRec);
+		Recomendacao r1 = new Recomendacao(i3, cachorrosRec);
 		recomendacoes.add(r1);
 
 
