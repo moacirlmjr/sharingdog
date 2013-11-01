@@ -10,12 +10,50 @@
 <ui:composition template="../_template.xhtml">
 
 	<ui:define name="conteudo">
+		<h:form>
+			<p:messages autoUpdate="true" />
+			<p:growl autoUpdate="true" />
 
-		
+			<p:fieldset legend="Cadastro de Interesses">
+
+				<p:panelGrid columns="4">
+
+
+					<p:dataTable id="racas" var="raca" value="#{racasBean.racas}"
+						paginator="true" rows="8"
+						selection="#{interesseBean.selectedRaca}">
+
+						<f:facet name="header">  Escolha uma raça de interesse</f:facet>
+
+						<p:column selectionMode="single" style="width:2%" />
+						<p:column headerText="Id" style="width:25%">  #{raca.id} </p:column>
+						<p:column headerText="Descrição" style="width:25%">   #{raca.raca}  </p:column>
+						<p:column headerText="Porte" style="width:25%">  #{raca.porte.porte} </p:column>
+						<f:facet name="footer">
+							<p:commandButton id="Button" value="Escolher" icon="ui-icon-disk"
+								action="#{interesseBean.gravar}" />
+						</f:facet>
+					</p:dataTable>
+
+
+					<h:outputLabel value="Raca de Interesse: " for="raca" />
+					<p:selectOneMenu name="select" id="raca"
+						value="#{interesseBean.racaID}">
+						<f:selectItems value="#{racaBean.racas}" var="raca"
+							itemLabel="#{raca.raca}" itemValue="#{raca.id}" />
+					</p:selectOneMenu>
+
+					<p:commandButton value="Gravar" action="#{interesseBean.gravar}"
+						ajax="false" />
+				</p:panelGrid>
+			</p:fieldset>
+		</h:form>
 
 
 
-			
+
+
+
 
 	</ui:define>
 </ui:composition>
