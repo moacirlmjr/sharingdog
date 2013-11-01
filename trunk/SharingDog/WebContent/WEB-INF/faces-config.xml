@@ -43,13 +43,23 @@
 		<!-- Navegacoes na pasta USER-RECEPTOR -->
 		
 		<navigation-case>
-			<from-outcome>interesse</from-outcome>
+			<from-outcome>cadastroInteresse</from-outcome>
 			<to-view-id>/protected/userReceptor/cadastros/interesse.jsf</to-view-id>
 			<redirect />
 		</navigation-case>	
 		<navigation-case>
 			<from-outcome>dadosDoUsuarioReceptor</from-outcome>
 			<to-view-id>/protected/userReceptor/relatorios/relDadosUser.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>relInteresses</from-outcome>
+			<to-view-id>/protected/userReceptor/relatorios/relInteresses.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>relRecomendacoes</from-outcome>
+			<to-view-id>/protected/userReceptor/relatorios/relRecomendacoes.jsf</to-view-id>
 			<redirect />
 		</navigation-case>	
 		
