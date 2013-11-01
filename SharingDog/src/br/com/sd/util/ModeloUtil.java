@@ -3,8 +3,10 @@ package br.com.sd.util;
 import java.util.ArrayList;
 
 import br.com.sd.modelo.Cachorro;
+import br.com.sd.modelo.Interesse;
 import br.com.sd.modelo.Porte;
 import br.com.sd.modelo.Raca;
+import br.com.sd.modelo.Recomendacao;
 import br.com.sd.modelo.Role;
 import br.com.sd.modelo.Usuario;
 import br.com.sd.modelo.enumerator.Sexo;
@@ -17,6 +19,8 @@ public class ModeloUtil {
 	public static ArrayList<Porte> portes = new ArrayList<Porte>();
 	public static ArrayList<Raca> racas = new ArrayList<Raca>();
 	public static ArrayList<Cachorro> cachorros = new ArrayList<Cachorro>();
+	public static ArrayList<Interesse> interesses = new ArrayList<Interesse>();
+	public static ArrayList<Recomendacao> recomendacoes = new ArrayList<Recomendacao>();	
 	
 	static{
 		
@@ -239,6 +243,27 @@ public class ModeloUtil {
 		cachorros.add(baleia);
 		cachorros.add(tonhao);
 		cachorros.add(bilola);
+		
+		Interesse i1 = new Interesse(maria, pinscher);
+		Interesse i2 = new Interesse(gabriela, poodle);
+		Interesse i3 = new Interesse(flavio, pastorAlemao);
+		Interesse i4 = new Interesse(flavio, saoBernado);
+		
+		interesses.add(i1);
+		interesses.add(i2);
+		interesses.add(i3);
+		interesses.add(i4);
+		
+		ArrayList<Cachorro> cachorrosRec = new ArrayList<Cachorro>();
+		cachorrosRec.add(yankee);
+		cachorrosRec.add(baleia);
+		
+		Recomendacao r1 = new Recomendacao(i1, cachorrosRec);
+		recomendacoes.add(r1);
+
+
+
+		
 		
 		
 	}
