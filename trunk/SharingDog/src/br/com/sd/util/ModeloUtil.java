@@ -35,6 +35,12 @@ public class ModeloUtil {
 		Usuario admin = new Usuario("Administrador",
 				"administrador@sharingdog.com", "77665544", "@SharingDog",  Sexo.Masculino,
 				"admin", "admin123", roleAdmin);
+		Usuario userR = new Usuario("Usuario Receptor",
+				"receptor@sharingdog.com", "77665544", "@ReceptorSharingDog",  Sexo.Masculino,
+				"userR", "userR123", roleUserReceptor);
+		Usuario userD = new Usuario("Usuario Doados",
+				"doador@sharingdog.com", "77665544", "@DoadorSharingDog",  Sexo.Masculino,
+				"userD", "userD123", roleAdmin);
 		
 		Usuario danyllo = new Usuario("Danyllo Wagner",
 				"danyllo_wagner@hotmail.com", "79009677", "@DanylloWagner", Sexo.Masculino,
@@ -133,6 +139,8 @@ public class ModeloUtil {
 
 		
 		usuarios.add(admin);
+		usuarios.add(userR);
+		usuarios.add(userD);
 		usuarios.add(danyllo);
 		usuarios.add(anelise);
 		usuarios.add(roberto);

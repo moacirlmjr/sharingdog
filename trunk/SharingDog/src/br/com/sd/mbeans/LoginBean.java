@@ -72,7 +72,7 @@ public class LoginBean {
 				return "relatorioUsuarios";
 			}
 			else if (user.isUserReceptor()){
-				return "dadosDoUsuarioDonor";				
+				return "dadosDoUsuarioReceptor";				
 			}
 			else if (user.isUserDoador()){
 				return "dadosDoUsuarioDonor";

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
@@ -16,14 +16,15 @@ import br.com.sd.modelo.enumerator.InteresseStatus;
 import br.com.sd.util.CalendarUtil;
 
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class InteresseBean {
 
 	private Interesse interesse;
-	private Integer RacaID;
+	private Raca selectedRaca;
 
 	public InteresseBean() {
 		interesse = new Interesse();
+		selectedRaca = new Raca();
 	}
 
 	public Interesse getInteresse() {
@@ -32,6 +33,15 @@ public class InteresseBean {
 
 	public void setInteresse(Interesse interesse) {
 		this.interesse = interesse;
+	}
+	
+
+	public Raca getSelectedRaca() {
+		return selectedRaca;
+	}
+
+	public void setSelectedRaca(Raca selectedRaca) {
+		this.selectedRaca = selectedRaca;
 	}
 
 	public List<Interesse> getInteresses() {
@@ -55,8 +65,8 @@ public class InteresseBean {
 				.getSession(true);
 		Usuario u = (Usuario) session.getAttribute("usuario");
 
-		Raca r = new DAO<Raca>(Raca.class).buscaPorId(this.RacaID);
-		this.interesse.setRacasDeInteresse(r);
+		//Raca r = new DAO<Raca>(Raca.class).buscaPorId(this.selectedRaca.getId());
+		this.interesse.setRacasDeInteresse(this.selectedRaca);
 		this.interesse.setUsuario(u);
 		this.interesse.setDataRegistro(CalendarUtil.retornaDiaDeHoje());
 		this.interesse.setStatus(InteresseStatus.ATIVO);

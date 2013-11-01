@@ -1,5 +1,6 @@
 package br.com.sd.mbeans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -8,6 +9,7 @@ import javax.faces.bean.RequestScoped;
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Porte;
 import br.com.sd.modelo.Raca;
+import br.com.sd.modelo.RacaDataModel;
 import br.com.sd.util.JSFMessageUtil;
 
 @ManagedBean
@@ -16,9 +18,11 @@ public class RacaBean {
 
 	private Raca raca;
 	private Integer porteID;
+	private RacaDataModel rdm;
 	
 	public RacaBean(){
 		raca = new Raca();
+		rdm=new RacaDataModel((ArrayList<Raca>) getRacas());
 	}
 
 	public Raca getRaca() {
@@ -35,6 +39,15 @@ public class RacaBean {
 
 	public void setPorteID(Integer porteID) {
 		this.porteID = porteID;
+	}
+	
+
+	public RacaDataModel getRdm() {
+		return rdm;
+	}
+
+	public void setRdm(RacaDataModel rdm) {
+		this.rdm = rdm;
 	}
 
 	public List<Raca> getRacas() {
