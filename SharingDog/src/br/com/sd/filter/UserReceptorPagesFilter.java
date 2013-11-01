@@ -28,7 +28,7 @@ public class UserReceptorPagesFilter extends AbstractFilter implements Filter {
 			
 		}
 
-		if((!user.isUserReceptor() && !user.isAdmin())){
+		if((!user.isUserReceptor() && !user.isUserDoador())){
 			accessDenied(request, response, req);
 			throw new SecurityException();
 		}
