@@ -49,7 +49,7 @@ public class InteresseBean {
 		return rec;
 	}
 
-	public void grava() {
+	public void gravar() {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		HttpSession session = (HttpSession) facesContext.getExternalContext()
 				.getSession(true);
@@ -63,14 +63,18 @@ public class InteresseBean {
 		new DAO<Interesse>(Interesse.class).adiciona(this.interesse);
 	}
 
-	public void tornaInativo() {
+	public void tornarInativo() {
 		this.interesse.setStatus(InteresseStatus.INATIVO);
 		new DAO<Interesse>(Interesse.class).atualiza(this.interesse);
 	}
 
-	public void tornaAtendido() {
+	public void tornarAtendido() {
 		this.interesse.setStatus(InteresseStatus.ATENDIDO);
 		new DAO<Interesse>(Interesse.class).atualiza(this.interesse);
+	}
+	
+	public void excluir() {
+		new DAO<Interesse>(Interesse.class).remove(this.interesse);
 	}
 
 }
