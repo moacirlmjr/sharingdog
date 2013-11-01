@@ -54,7 +54,7 @@ public class RecomendacaoBean {
 		return rec;
 	}
 
-	public void grava() {
+	public void gravar() {
 		Interesse inte = new DAO<Interesse>(Interesse.class)
 				.buscaPorId(this.interesseID);
 		this.recomendacao.setInteresse(inte);
@@ -73,5 +73,10 @@ public class RecomendacaoBean {
 		this.recomendacao.setStatus(RecomendacaoStatus.INATIVA);
 		new DAO<Recomendacao>(Recomendacao.class).atualiza(this.recomendacao);
 	}
+	
+	public void excluir() {
+		new DAO<Recomendacao>(Recomendacao.class).remove(this.recomendacao);
+	}
+
 
 }
