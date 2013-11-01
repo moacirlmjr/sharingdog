@@ -4,8 +4,10 @@ import javax.persistence.EntityManager;
 
 import br.com.sd.dao.HibernateUtil;
 import br.com.sd.modelo.Cachorro;
+import br.com.sd.modelo.Interesse;
 import br.com.sd.modelo.Porte;
 import br.com.sd.modelo.Raca;
+import br.com.sd.modelo.Recomendacao;
 import br.com.sd.modelo.Role;
 import br.com.sd.modelo.Usuario;
 import br.com.sd.util.ModeloUtil;
@@ -48,6 +50,20 @@ public class BancoUtil {
 		em.getTransaction().begin();
 		for (Cachorro cachorro : ModeloUtil.cachorros) {
 			em.persist(cachorro);
+		}
+		em.getTransaction().commit();
+
+		// criando interesses
+		em.getTransaction().begin();
+		for (Interesse i : ModeloUtil.interesses) {
+			em.persist(i);
+		}
+		em.getTransaction().commit();
+
+		// criando recomendacao
+		em.getTransaction().begin();
+		for (Recomendacao r : ModeloUtil.recomendacoes) {
+			em.persist(r);
 		}
 		em.getTransaction().commit();
 		em.close();
