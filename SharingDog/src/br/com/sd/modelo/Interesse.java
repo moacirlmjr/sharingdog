@@ -19,8 +19,8 @@ import br.com.sd.util.CalendarUtil;
 
 @Entity
 @NamedQueries(value = {
-		@NamedQuery(name = "Interesse.findAllInteresses", query = "select c from Cachorro c order by raca_id asc, nome asc"),
-		@NamedQuery(name = "Interesse.findAllInteressesUser", query = "select c from Cachorro c where dono_id = :uid") })
+		@NamedQuery(name = "Interesse.findAllInteresses", query = "select i from Interesse i order by usuario_id"),
+		@NamedQuery(name = "Interesse.findAllInteressesUser", query = "select i from Interesse i where usuario_id = :uid") })
 public class Interesse {
 
 	public static final String findAllInteresses = "Interesse.findAllInteresses";

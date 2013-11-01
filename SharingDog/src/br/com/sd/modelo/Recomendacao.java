@@ -20,12 +20,12 @@ import br.com.sd.modelo.enumerator.RecomendacaoStatus;
 
 @Entity
 @NamedQueries(value = {
-		@NamedQuery(name = "Recomendacao.findAllRecomendacaoesUsuario", query = "select c from Cachorro c order by raca_id asc, nome asc"),
-		@NamedQuery(name = "Recomendacao.findAllRecomendacaoesAtuais", query = "select c from Cachorro c where dono_id = :uid") })
+		@NamedQuery(name = "Recomendacao.findAllRecomendacaoes", query = "select r from Recomendacao r order by dataRegistro desc"),
+		@NamedQuery(name = "Recomendacao.findAllRecomendacaoesUsuario", query = "select r from Recomendacao r") })
 public class Recomendacao {
 
 	public static final String findAllRecomendacaoesUsuario = "Recomendacao.findAllRecomendacaoesUsuario";
-	public static final String findAllRecomendacaoesAtuais = "Recomendacao.findAllRecomendacaoesAtuais";
+	public static final String findAllRecomendacaoes = "Recomendacao.findAllRecomendacaoes";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +39,7 @@ public class Recomendacao {
 
 	@Enumerated(EnumType.STRING)
 	private RecomendacaoStatus status;
-	
+
 	@OneToMany
 	private List<Cachorro> cachorros;
 
@@ -95,11 +95,9 @@ public class Recomendacao {
 	public void setCachorros(List<Cachorro> cachorros) {
 		this.cachorros = cachorros;
 	}
-	
+
 	public void adicionaCachorroParaRecomendacao(Cachorro c) {
 		this.cachorros.add(c);
 	}
-	
-	
 
 }

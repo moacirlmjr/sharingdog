@@ -1,7 +1,8 @@
 package br.com.sd.mbeans;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -9,8 +10,10 @@ import javax.faces.bean.RequestScoped;
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Interesse;
 import br.com.sd.modelo.Recomendacao;
+import br.com.sd.modelo.Usuario;
 import br.com.sd.modelo.enumerator.RecomendacaoStatus;
 import br.com.sd.util.CalendarUtil;
+import br.com.sd.util.LoginUtil;
 
 @ManagedBean
 @RequestScoped
@@ -40,18 +43,21 @@ public class RecomendacaoBean {
 	}
 
 	public List<Recomendacao> getRecomendacoes() {
-		List<Recomendacao> rec = new ArrayList<Recomendacao>();
-		return rec;
+		return new DAO<Recomendacao>(Recomendacao.class).listaTodos();
 	}
 
 	public List<Recomendacao> getRecomendacoesAtuais() {
-		List<Recomendacao> rec = new ArrayList<Recomendacao>();
-		return rec;
+		return new DAO<Recomendacao>(Recomendacao.class).listaTodos();
+
 	}
 
 	public List<Recomendacao> getRecomendacoesUsuario() {
-		List<Recomendacao> rec = new ArrayList<Recomendacao>();
-		return rec;
+		Usuario u = LoginUtil.retornaUsuarioLogado();
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("uid", u.getId());
+		return new DAO<Recomendacao>(Recomendacao.class).findListResults(
+		Recomendacao.findAllRecomendacaoesUsuario, params);
+
 	}
 
 	public void gravar() {
@@ -73,10 +79,9 @@ public class RecomendacaoBean {
 		this.recomendacao.setStatus(RecomendacaoStatus.INATIVA);
 		new DAO<Recomendacao>(Recomendacao.class).atualiza(this.recomendacao);
 	}
-	
+
 	public void excluir() {
 		new DAO<Recomendacao>(Recomendacao.class).remove(this.recomendacao);
 	}
-
 
 }
