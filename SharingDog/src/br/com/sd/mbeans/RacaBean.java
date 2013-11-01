@@ -8,6 +8,7 @@ import javax.faces.bean.RequestScoped;
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Porte;
 import br.com.sd.modelo.Raca;
+import br.com.sd.util.JSFMessageUtil;
 
 @ManagedBean
 @RequestScoped
@@ -44,12 +45,15 @@ public class RacaBean {
 		return new DAO<Raca>(Raca.class).findListResults(Raca.findAllRacasOrdenadas);
 	}
 
-	public String gravar() {
+	public void gravar() {
 		Porte p = new DAO<Porte>(Porte.class).buscaPorId(porteID);
 		raca.setPorte(p);
 		System.out.println("Gravando Raca " + this.raca.getRaca());
 		new DAO<Raca>(Raca.class).adiciona(raca);
-		return "relatorioRacas";
+		raca= new Raca();
+		JSFMessageUtil.sendInfoMessageToUser("Raça cadastrada com sucesso!!!");
+
+		//return "relatorioRacas";
 
 	}
 
