@@ -3,12 +3,14 @@ package br.com.sd.mbeans;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
+
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Porte;
+import br.com.sd.util.JSFMessageUtil;
 
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class PorteBean {
 	
 	private Porte porte;
@@ -33,10 +35,12 @@ public class PorteBean {
 		return new DAO<Porte>(Porte.class).findListResults(Porte.findAllPorteOrdenados);
 	}
 
-	public String gravar() {
+	public void gravar() {
 		System.out.println("Gravando Porte " + this.porte.getPorte());
 		new DAO<Porte>(Porte.class).adiciona(porte);
-		return "relatorioPortes";
+		porte = new Porte();
+		JSFMessageUtil.sendInfoMessageToUser("Porte cadastrado com sucesso!!!");
+		//return "relatorioPortes";
 	}
 	
 	

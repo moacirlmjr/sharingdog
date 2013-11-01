@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Role;
 import br.com.sd.modelo.Usuario;
+import br.com.sd.util.JSFMessageUtil;
 
 @ManagedBean
 @RequestScoped
@@ -18,11 +19,10 @@ public class UsuarioBean {
 
 	private Usuario usuario;
 	private Integer roleID;
-	
-	public UsuarioBean(){
-		usuario= new Usuario();
+
+	public UsuarioBean() {
+		usuario = new Usuario();
 		roleID = 1;
-		
 	}
 
 	public Usuario getUsuario() {
@@ -70,7 +70,18 @@ public class UsuarioBean {
 		this.usuario.setRole(role);
 		new DAO<Usuario>(Usuario.class).adiciona(this.usuario);
 		this.usuario = new Usuario();
-		return "login";
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context
+				.getExternalContext().getRequest();
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		if (user.isAdmin()) {
+			JSFMessageUtil
+					.sendInfoMessageToUser("Usuário Gravado com sucesso!!!");
+			;
+			return "";
+		} else {
+			return "login";
+		}
 
 	}
 

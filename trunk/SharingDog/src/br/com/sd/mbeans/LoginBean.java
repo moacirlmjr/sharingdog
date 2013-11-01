@@ -69,13 +69,13 @@ public class LoginBean {
 					.getExternalContext().getRequest();
 			request.getSession().setAttribute("usuario", user);
 			if (user.isAdmin()){
-				return "relatorioCachorros";
+				return "relatorioUsuarios";
 			}
 			else if (user.isUserReceptor()){
-				return "interesse";				
+				return "dadosDoUsuarioDonor";				
 			}
 			else if (user.isUserDoador()){
-				return "cachorro";
+				return "dadosDoUsuarioDonor";
 			}		
 		}
 
