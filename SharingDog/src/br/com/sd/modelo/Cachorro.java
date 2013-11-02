@@ -31,9 +31,12 @@ public class Cachorro implements Generic {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String nome;
+	
 	@OneToOne
 	private Raca raca;
+	
 	@OneToOne
 	private Usuario dono;
 

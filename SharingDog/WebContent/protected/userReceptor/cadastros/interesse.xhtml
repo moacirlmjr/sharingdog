@@ -18,14 +18,19 @@
 		<p:fieldset legend="Cadastro de Interesses">
 
 			<h:form>
-				<p:dataTable id="racas" var="raca" value="#{racaBean.rdm}"
-					paginator="true" rows="7" selection="#{interesseBean.selectedRaca}">
+				<p:dataTable id="racas" var="raca" style="text-align:center"
+					value="#{racaBean.rdm}" paginator="true" rows="7"
+					selection="#{interesseBean.selectedRaca}">
 
 					<f:facet name="header">Escolha uma raça de interesse</f:facet>
-					<p:column headerText="Seleção" selectionMode="single" style="width:4%"></p:column>
-					<p:column headerText="Id" style="width:15%">  #{raca.id} </p:column>
+					<p:column headerText="Seleção" selectionMode="single"
+						style="width:4px; text-align:center"></p:column>
+					<p:column headerText="Id" style="width:15%; text-align:center">  #{raca.id} </p:column>
 					<p:column headerText="Descrição" style="width:25%">   #{raca.raca}  </p:column>
 					<p:column headerText="Porte" style="width:25%">  #{raca.porte.porte} </p:column>
+					<p:column headerText="Imagem" style="width:25%">
+						<p:graphicImage value="/resources/img/cachorros/#{raca.raca}.jpg" />
+					</p:column>
 					<f:facet name="footer">
 						<p:commandButton value="Escolher" icon="ui-icon-disk"
 							action="#{interesseBean.gravar}">
@@ -33,7 +38,6 @@
 					</f:facet>
 				</p:dataTable>
 			</h:form>
-
 		</p:fieldset>
 
 	</ui:define>

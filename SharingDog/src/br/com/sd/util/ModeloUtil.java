@@ -208,7 +208,7 @@ public class ModeloUtil {
 		Raca poodle = new Raca("Poodle", pequeno);
 		Raca basset = new Raca("Basset Hound", pequeno);
 		Raca pinscher = new Raca("Pincher", pequeno);
-		Raca maltes = new Raca("Maltss", pequeno);
+		Raca maltes = new Raca("Maltes", pequeno);
 		Raca yorkshire = new Raca("Yorkshire", pequeno);
 		Raca shitsu = new Raca("Shitsu", pequeno);
 		Raca viralatap = new Raca("Vira-lata", pequeno);
@@ -262,12 +262,12 @@ public class ModeloUtil {
 		interesses.add(i3);
 		interesses.add(i4);
 		
-		ArrayList<Cachorro> cachorrosRec = new ArrayList<Cachorro>();
-		cachorrosRec.add(yankee);
-		cachorrosRec.add(baleia);
 		
-		Recomendacao r1 = new Recomendacao(i3, cachorrosRec);
+		
+		Recomendacao r1 = new Recomendacao(i3, yankee);
+		Recomendacao r2 = new Recomendacao(i3, baleia);
 		recomendacoes.add(r1);
+		recomendacoes.add(r2);
 
 
 

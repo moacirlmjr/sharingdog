@@ -6,12 +6,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Role;
 import br.com.sd.modelo.Usuario;
 import br.com.sd.util.JSFMessageUtil;
+import br.com.sd.util.LoginUtil;
 
 @ManagedBean
 @RequestScoped
@@ -51,11 +51,7 @@ public class UsuarioBean {
 		this.usuario.setRole(role);
 		new DAO<Usuario>(Usuario.class).adiciona(this.usuario);
 		this.usuario = new Usuario();
-		FacesContext context = FacesContext.getCurrentInstance();
-		HttpServletRequest request = (HttpServletRequest) context
-				.getExternalContext().getRequest();
-		HttpSession httpSession = request.getSession(true);
-		Usuario user = (Usuario) httpSession.getAttribute("usuario");
+		Usuario user = LoginUtil.retornaUsuarioLogado();
 		if (user.isAdmin()) {
 			return "relatorioUsuarios";
 		} else {
@@ -64,27 +60,21 @@ public class UsuarioBean {
 
 	}
 
-	public String gravarUsuario() {
+	public void gravarUsuario() {
 		System.out.println("Gravando usuario " + this.usuario.getNome());
 		Role role = new DAO<Role>(Role.class).buscaPorId(roleID);
 		this.usuario.setRole(role);
 		new DAO<Usuario>(Usuario.class).adiciona(this.usuario);
 		this.usuario = new Usuario();
-		FacesContext context = FacesContext.getCurrentInstance();
-		HttpServletRequest request = (HttpServletRequest) context
-				.getExternalContext().getRequest();
-		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
-		if (user.isAdmin()) {
-			JSFMessageUtil
-					.sendInfoMessageToUser("Usuário Gravado com sucesso!!!");
-			;
-			return "";
-		} else {
-			return "login";
-		}
-
+		JSFMessageUtil.sendInfoMessageToUser("Usuário Gravado com sucesso!!!");
 	}
 
+	public String atualizaDados() {
+		new DAO<Usuario>(Usuario.class).atualiza(this.usuario);
+		this.usuario = new Usuario();
+		return "dadosDoUsuario";
+	}
+	
 	public Usuario getUsuarioLogado() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest) context
@@ -94,10 +84,5 @@ public class UsuarioBean {
 		return this.usuario;
 	}
 
-	public String atualizaDados() {
-		new DAO<Usuario>(Usuario.class).atualiza(this.usuario);
-		this.usuario = new Usuario();
-		return "dadosDoUsuario";
-	}
 
 }

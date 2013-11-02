@@ -120,6 +120,26 @@
 			<to-view-id>/protected/admin/relatorios/relUsuarios.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>relatorioUsuariosSemInteresses</from-outcome>
+			<to-view-id>/protected/admin/relatorios/relUsuariosSemInteresse.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>relatorioUsuariosSemRecomendacao</from-outcome>
+			<to-view-id>/protected/admin/relatorios/relUsuariosSemRecomendacao.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>relatorioInteresses</from-outcome>
+			<to-view-id>/protected/admin/relatorios/relInteresses.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>relatorioRecomendacoes</from-outcome>
+			<to-view-id>/protected/admin/relatorios/relRecomendacoes.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
 		
 	</navigation-rule>
 
