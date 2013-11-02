@@ -1,8 +1,7 @@
 package br.com.sd.mbeans;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -53,11 +52,18 @@ public class RecomendacaoBean {
 
 	public List<Recomendacao> getRecomendacoesUsuario() {
 		Usuario u = LoginUtil.retornaUsuarioLogado();
-		Map<String, Object> params = new HashMap<String, Object>();
+		/*Map<String, Object> params = new HashMap<String, Object>();
 		params.put("uid", u.getId());
 		return new DAO<Recomendacao>(Recomendacao.class).findListResults(
-		Recomendacao.findAllRecomendacaoesUsuario, params);
-
+		Recomendacao.findAllRecomendacaoesUsuario, params);*/
+		ArrayList<Recomendacao> aux = (ArrayList<Recomendacao>) new DAO<Recomendacao>(Recomendacao.class).listaTodos();
+		ArrayList<Recomendacao> auxNovo = new ArrayList<Recomendacao>();
+		for(Recomendacao r : aux){
+			if(r.getInteresse().getUsuario().getId() == u.getId()){
+				auxNovo.add(r);
+			}			
+		}		
+		return auxNovo;
 	}
 
 	public void gravar() {

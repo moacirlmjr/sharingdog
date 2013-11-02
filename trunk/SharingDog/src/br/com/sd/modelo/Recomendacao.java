@@ -21,7 +21,7 @@ import br.com.sd.modelo.enumerator.RecomendacaoStatus;
 @Entity
 @NamedQueries(value = {
 		@NamedQuery(name = "Recomendacao.findAllRecomendacaoes", query = "select r from Recomendacao r order by dataRegistro desc"),
-		@NamedQuery(name = "Recomendacao.findAllRecomendacaoesUsuario", query = "select r from Recomendacao r") })
+		@NamedQuery(name = "Recomendacao.findAllRecomendacaoesUsuario", query = "select r from Recomendacao r order by dataRegistro desc") })
 public class Recomendacao {
 
 	public static final String findAllRecomendacaoesUsuario = "Recomendacao.findAllRecomendacaoesUsuario";
@@ -45,7 +45,7 @@ public class Recomendacao {
 
 	public Recomendacao() {
 		interesse = new Interesse();
-		dataRegistro = Calendar.getInstance();
+		dataRegistro = Calendar.getInstance();		
 	}
 
 	public Recomendacao(Interesse interesse, List<Cachorro> cachorros) {
