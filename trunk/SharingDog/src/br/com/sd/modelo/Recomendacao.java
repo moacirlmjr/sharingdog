@@ -1,7 +1,6 @@
 package br.com.sd.modelo;
 
 import java.util.Calendar;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,19 +10,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import br.com.sd.modelo.enumerator.RecomendacaoStatus;
+import br.com.sd.modelo.interfaces.Generic;
 
 @Entity
 @NamedQueries(value = {
 		@NamedQuery(name = "Recomendacao.findAllRecomendacaoes", query = "select r from Recomendacao r order by dataRegistro desc"),
 		@NamedQuery(name = "Recomendacao.findAllRecomendacaoesUsuario", query = "select r from Recomendacao r order by dataRegistro desc") })
-public class Recomendacao {
+public class Recomendacao implements Generic{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String findAllRecomendacaoesUsuario = "Recomendacao.findAllRecomendacaoesUsuario";
 	public static final String findAllRecomendacaoes = "Recomendacao.findAllRecomendacaoes";
 
@@ -40,19 +43,19 @@ public class Recomendacao {
 	@Enumerated(EnumType.STRING)
 	private RecomendacaoStatus status;
 
-	@OneToMany
-	private List<Cachorro> cachorros;
+	@OneToOne
+	private Cachorro cachorro;
 
 	public Recomendacao() {
 		interesse = new Interesse();
 		dataRegistro = Calendar.getInstance();		
 	}
 
-	public Recomendacao(Interesse interesse, List<Cachorro> cachorros) {
+	public Recomendacao(Interesse interesse, Cachorro cachorro) {
 		super();
 		this.dataRegistro = Calendar.getInstance();
 		this.interesse = interesse;
-		this.cachorros = cachorros;
+		this.cachorro = cachorro;
 		this.status = RecomendacaoStatus.ATIVA;
 	}
 
@@ -88,16 +91,15 @@ public class Recomendacao {
 		this.status = status;
 	}
 
-	public List<Cachorro> getCachorros() {
-		return cachorros;
+	public Cachorro getCachorro() {
+		return cachorro;
 	}
 
-	public void setCachorros(List<Cachorro> cachorros) {
-		this.cachorros = cachorros;
+	public void setCachorro(Cachorro cachorro) {
+		this.cachorro = cachorro;
 	}
 
-	public void adicionaCachorroParaRecomendacao(Cachorro c) {
-		this.cachorros.add(c);
-	}
+	
 
 }
+

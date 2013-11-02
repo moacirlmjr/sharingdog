@@ -13,6 +13,7 @@ import br.com.sd.modelo.Raca;
 import br.com.sd.modelo.Usuario;
 import br.com.sd.modelo.enumerator.InteresseStatus;
 import br.com.sd.util.CalendarUtil;
+import br.com.sd.util.JSFMessageUtil;
 import br.com.sd.util.LoginUtil;
 
 @ManagedBean
@@ -68,6 +69,7 @@ public class InteresseBean {
 		this.interesse.setDataRegistro(CalendarUtil.retornaDiaDeHoje());
 		this.interesse.setStatus(InteresseStatus.ATIVO);
 		new DAO<Interesse>(Interesse.class).adiciona(this.interesse);
+		JSFMessageUtil.sendInfoMessageToUser("Interesse em " + this.interesse.getRacasDeInteresse().getRaca() + " gravado com sucesso!");
 	}
 
 	public void tornarInativo() {

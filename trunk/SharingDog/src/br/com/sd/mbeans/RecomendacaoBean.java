@@ -7,9 +7,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import br.com.sd.dao.DAO;
+import br.com.sd.modelo.Cachorro;
 import br.com.sd.modelo.Interesse;
 import br.com.sd.modelo.Recomendacao;
 import br.com.sd.modelo.Usuario;
+import br.com.sd.modelo.enumerator.InteresseStatus;
 import br.com.sd.modelo.enumerator.RecomendacaoStatus;
 import br.com.sd.util.CalendarUtil;
 import br.com.sd.util.LoginUtil;
@@ -20,6 +22,7 @@ public class RecomendacaoBean {
 
 	private Recomendacao recomendacao;
 	private Integer interesseID;
+	private Integer cachorroID;
 
 	public RecomendacaoBean() {
 		recomendacao = new Recomendacao();
@@ -52,25 +55,25 @@ public class RecomendacaoBean {
 
 	public List<Recomendacao> getRecomendacoesUsuario() {
 		Usuario u = LoginUtil.retornaUsuarioLogado();
-		/*Map<String, Object> params = new HashMap<String, Object>();
-		params.put("uid", u.getId());
-		return new DAO<Recomendacao>(Recomendacao.class).findListResults(
-		Recomendacao.findAllRecomendacaoesUsuario, params);*/
-		ArrayList<Recomendacao> aux = (ArrayList<Recomendacao>) new DAO<Recomendacao>(Recomendacao.class).listaTodos();
+		ArrayList<Recomendacao> aux = (ArrayList<Recomendacao>) new DAO<Recomendacao>(
+				Recomendacao.class).listaTodos();
 		ArrayList<Recomendacao> auxNovo = new ArrayList<Recomendacao>();
-		for(Recomendacao r : aux){
-			if(r.getInteresse().getUsuario().getId() == u.getId()){
-				auxNovo.add(r);
-			}			
-		}		
+		for (Recomendacao r : aux) {
+			if (r.getInteresse().getUsuario().getId() == u.getId()) {
+				if (r.getInteresse().getStatus() == InteresseStatus.ATIVO) {
+					auxNovo.add(r);
+				}
+			}
+		}
 		return auxNovo;
 	}
 
 	public void gravar() {
-		Interesse inte = new DAO<Interesse>(Interesse.class)
-				.buscaPorId(this.interesseID);
+		Interesse inte = new DAO<Interesse>(Interesse.class).buscaPorId(this.interesseID);
+		Cachorro cachorro = new DAO<Cachorro>(Cachorro.class).buscaPorId(this.cachorroID);
 		this.recomendacao.setInteresse(inte);
 		this.recomendacao.setDataRegistro(CalendarUtil.retornaDiaDeHoje());
+		this.recomendacao.setCachorro(cachorro);
 		this.recomendacao.setStatus(RecomendacaoStatus.ATIVA);
 		new DAO<Recomendacao>(Recomendacao.class).adiciona(this.recomendacao);
 
@@ -89,5 +92,9 @@ public class RecomendacaoBean {
 	public void excluir() {
 		new DAO<Recomendacao>(Recomendacao.class).remove(this.recomendacao);
 	}
-
+	
+	
+	public void recomendaUsuario(){
+		
+	}
 }

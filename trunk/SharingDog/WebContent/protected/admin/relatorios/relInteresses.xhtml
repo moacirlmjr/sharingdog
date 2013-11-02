@@ -14,13 +14,26 @@
 		<p:fieldset legend="Relatório de Interesses">
 			<h:form id="formPrincipal">
 				<p:dataTable var="interesse" style="text-align:center"
-					value="#{interesseBean.interessesUsuario}" id="tabelaInteresses" rows="5" paginator="true">
+					value="#{interesseBean.interesses}" id="tabelaInteresses"
+					rows="3" paginator="true">
 					<f:facet name="header">Interesses Cadastrados</f:facet>
 
 					<p:column headerText="Data do Registro">
 						<h:outputText value="#{interesse.dataRegistro.time}">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</h:outputText>
+					</p:column>
+					
+					<p:column headerText="Usuario">
+						<h:outputText value="#{interesse.usuario.nome}" />
+					</p:column>
+					
+					<p:column headerText="Email">
+						<h:outputText value="#{interesse.usuario.email}" />
+					</p:column>
+					
+					<p:column headerText="Telefone">
+						<h:outputText value="#{interesse.usuario.telefone}" />
 					</p:column>
 
 					<p:column headerText="Status">
@@ -35,10 +48,8 @@
 						<h:outputText value="#{interesse.racasDeInteresse.porte.porte}" />
 					</p:column>
 
-					<p:column headerText="Ações">
-						<p:commandButton value="Inativar"
-							action="#{interesseBean.tornarInativo}">
-						</p:commandButton>
+					<p:column headerText="Imagem" style="width:25%">
+						<p:graphicImage value="/resources/img/cachorros/#{interesse.racasDeInteresse.raca}.jpg" />
 					</p:column>
 
 				</p:dataTable>

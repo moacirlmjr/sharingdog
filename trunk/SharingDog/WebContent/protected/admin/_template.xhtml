@@ -20,26 +20,32 @@
 			<p:menubar>
 				<p:submenu label="Cadastros">
 					<p:menuitem value="Usuario" action="cadastroUsuario" />
-					<p:menuitem value="Porte"  action="cadastroPorte" />
-					<p:menuitem value="Raça" action="cadastroRaca"/>					
+					<p:menuitem value="Porte" action="cadastroPorte" />
+					<p:menuitem value="Raça" action="cadastroRaca" />
 				</p:submenu>
-				<p:submenu label="Registros">
-					<p:menuitem value="Usuarios" action="relatorioUsuarios" />
+				<p:submenu label="Registros Animais">
 					<p:menuitem value="Cachorros" action="relatorioCachorros" />
 					<p:menuitem value="Racas" action="relatorioRacas" />
 					<p:menuitem value="Porte" action="relatorioPortes" />
 				</p:submenu>
+				<p:submenu label="Registros Pessoas">
+					<p:menuitem value="Todos" action="relatorioUsuarios" />
+					<p:menuitem value="Sem Interesse"
+						action="relatorioUsuariosSemInteresses" />
+					<p:menuitem value="Sem Recomendações"
+						action="relatorioUsuariosSemRecomendacao" />
+				</p:submenu>
 				<p:submenu label="Analises">
-					<p:menuitem value="Recomendações" action="relatorioUsuarios" />
-					<p:menuitem value="Interesses" action="relatorioCachorros" />					
+					<p:menuitem value="Recomendações" action="relatorioRecomendacoes" />
+					<p:menuitem value="Interesses" action="relatorioInteresses" />
 				</p:submenu>
 				<p:submenu label="Sair">
 					<p:menuitem value="Finalizar sessão" action="#{loginBean.logOut}" />
 				</p:submenu>
-				<b>
-				<p:menuitem style="position: absolute; right: 20px;color:red; font-weight:bold"
-					value="olá, #{loginBean.usuarioLogado.login}" />
-					</b>
+				<b> <p:menuitem
+						style="position: absolute; right: 20px;color:red; font-weight:bold"
+						value="olá, #{loginBean.usuarioLogado.login}" />
+				</b>
 
 			</p:menubar>
 		</h:form>

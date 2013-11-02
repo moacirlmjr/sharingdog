@@ -15,14 +15,19 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import br.com.sd.modelo.enumerator.InteresseStatus;
+import br.com.sd.modelo.interfaces.Generic;
 import br.com.sd.util.CalendarUtil;
 
 @Entity
 @NamedQueries(value = {
 		@NamedQuery(name = "Interesse.findAllInteresses", query = "select i from Interesse i order by usuario_id"),
 		@NamedQuery(name = "Interesse.findAllInteressesUser", query = "select i from Interesse i where usuario_id = :uid") })
-public class Interesse {
+public class Interesse implements Generic {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String findAllInteresses = "Interesse.findAllInteresses";
 	public static final String findAllInteressesUser = "Interesse.findAllInteressesUser";
 
