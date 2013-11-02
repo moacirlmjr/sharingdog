@@ -13,9 +13,9 @@
 
 		<p:fieldset legend="Relatorio de Racas">
 			<p:dataTable value="#{racaBean.racas}" var="raca" paginator="true"
-				rows="7">
+				style="text-align:center" rows="7">
 				<p:column>
-					<f:facet name="header">Identificador</f:facet>
+					<f:facet name="header">Id</f:facet>
 					<h:outputText value="#{raca.id}" />
 				</p:column>
 				<p:column>
@@ -25,7 +25,10 @@
 				<p:column>
 					<f:facet name="header">Porte</f:facet>
 					<h:outputText value="#{raca.porte.porte}" />
-				</p:column>				
+				</p:column>
+				<p:column headerText="Imagem" style="width:25%">
+					<p:graphicImage value="/resources/img/cachorros/#{raca.raca}.jpg" />
+				</p:column>
 			</p:dataTable>
 		</p:fieldset>
 	</ui:define>

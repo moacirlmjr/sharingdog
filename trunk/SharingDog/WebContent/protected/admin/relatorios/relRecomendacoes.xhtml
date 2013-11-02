@@ -13,42 +13,42 @@
 
 		<p:fieldset legend="Relatório de Recomendações">
 			<h:form id="formPrincipal">
-				<p:dataTable var="recomendacao"
+				<p:dataTable var="recomendacao" style="text-align:center"
 					value="#{recomendacaoBean.recomendacoes}" id="tabelaDados"
 					paginator="true" paginatorAlwaysVisible="true" rows="5">
 					<f:facet name="header">Recomendações Cadastradas</f:facet>
 
-					<p:column headerText="Data da Recomendacao">
+					<p:column headerText="Data Recomendacao">
 						<h:outputText value="#{recomendacao.dataRegistro.time}">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</h:outputText>
 					</p:column>
 
-					<p:column headerText="Data do Interesse">
+					<p:column headerText="Data Interesse">
 						<h:outputText value="#{recomendacao.interesse.dataRegistro.time}">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</h:outputText>
 					</p:column>
-
-					<p:column headerText="Raca de Interesse">
-						<h:outputText
-							value="#{recomendacao.interesse.racasDeInteresse.raca}">
-							<f:convertDateTime pattern="dd/MM/yyyy" />
-						</h:outputText>
+					
+					<p:column headerText="Interessado">
+						<h:outputText value="#{recomendacao.interesse.usuario.nome}" />
 					</p:column>
 
-					<p:dataGrid var="Cachorro" value="#{recomendacao.cachorros}">
-						<p:column headerText="Nome do cachorro">
-							<h:outputText value="#{cachorro.nome}" />
-						</p:column>
-						<p:column headerText="Nome do dono">
-							<h:outputText value="#{cachorro.dono.nome}" />
-						</p:column>
-						<p:column headerText="Fone">
-							<h:outputText value="#{cachorro.dono.telefone}" />
-						</p:column>
+					<p:column headerText="Raca de Interesse">
+						<h:outputText value="#{recomendacao.interesse.racasDeInteresse.raca}" />
+					</p:column>
 
-					</p:dataGrid>
+					<p:column headerText="Nome do cachorro">
+						<h:outputText value="#{recomendacao.cachorro.nome}" />
+					</p:column>
+					
+					<p:column headerText="Nome do dono">
+						<h:outputText value="#{recomendacao.cachorro.dono.nome}" />
+					</p:column>
+					
+					<p:column headerText="Fone">
+						<h:outputText value="#{recomendacao.cachorro.dono.telefone}" />
+					</p:column>
 
 					<p:column headerText="Status">
 						<h:outputText value="#{recomendacao.status}" />
