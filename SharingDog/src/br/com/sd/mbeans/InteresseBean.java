@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Interesse;
@@ -17,7 +17,7 @@ import br.com.sd.util.JSFMessageUtil;
 import br.com.sd.util.LoginUtil;
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class InteresseBean {
 
 	private Interesse interesse;
@@ -62,7 +62,6 @@ public class InteresseBean {
 
 	}
 
-	
 	public void gravar() {
 		Usuario u = LoginUtil.retornaUsuarioLogado();
 		this.interesse.setRacasDeInteresse(this.selectedRaca);
@@ -78,15 +77,30 @@ public class InteresseBean {
 	public void tornarInativo() {
 		this.interesse.setStatus(InteresseStatus.INATIVO);
 		new DAO<Interesse>(Interesse.class).atualiza(this.interesse);
+		JSFMessageUtil.sendInfoMessageToUser("Interesse nr "
+				+ this.interesse.getId() + " alterado para Inativado!");
 	}
 
 	public void tornarAtendido() {
 		this.interesse.setStatus(InteresseStatus.ATENDIDO);
 		new DAO<Interesse>(Interesse.class).atualiza(this.interesse);
+		JSFMessageUtil.sendInfoMessageToUser("Interesse nr "
+				+ this.interesse.getId() + " alterado para Atendido!");
+
+	}
+
+	public void tornarAtivo() {
+		this.interesse.setStatus(InteresseStatus.ATIVO);
+		new DAO<Interesse>(Interesse.class).atualiza(this.interesse);
+		JSFMessageUtil.sendInfoMessageToUser("Interesse nr "
+				+ this.interesse.getId() + " alterado para Ativado!");
 	}
 
 	public void excluir() {
 		new DAO<Interesse>(Interesse.class).remove(this.interesse);
+		JSFMessageUtil.sendInfoMessageToUser("Interesse nr "
+				+ this.interesse.getId() + " excluido com sucesso!");
+
 	}
 
 }
