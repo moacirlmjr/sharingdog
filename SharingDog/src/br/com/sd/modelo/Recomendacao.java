@@ -99,6 +99,20 @@ public class Recomendacao implements Generic{
 		this.cachorro = cachorro;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if ((obj instanceof Recomendacao) && ((Recomendacao) obj).getId().equals(this.getId())) { 
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode(){
+		return this.getId().hashCode();
+		
+	}
 	
 
 }

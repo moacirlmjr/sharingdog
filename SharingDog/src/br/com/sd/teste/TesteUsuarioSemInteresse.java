@@ -6,9 +6,7 @@ public class TesteUsuarioSemInteresse {
 	
 	public static void main(String[] args) {
 		UsuarioBean ub = new UsuarioBean();
-		ub.getUsuariosSemInteresse();
-		
-		System.out.println("Tamanhooooooo" + ub.getUsuariosSemInteresse().size());
+		ub.getUsuariosSemRecomendacao();		
 	}
 
 }

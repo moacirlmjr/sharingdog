@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Interesse;
+import br.com.sd.modelo.Recomendacao;
 import br.com.sd.modelo.Role;
 import br.com.sd.modelo.Usuario;
 import br.com.sd.util.JSFMessageUtil;
@@ -60,11 +61,47 @@ public class UsuarioBean {
 		for (Interesse i : todosOsInteresse) {
 			todosOsUsuariosComInteresse.add(i.getUsuario());
 		}
-			
+
 		todosOsUsuarios.removeAll(todosOsUsuariosComInteresse);
-		todosOsUsuariosSemInteresse = todosOsUsuarios;		
+		todosOsUsuariosSemInteresse = todosOsUsuarios;
 
 		return todosOsUsuariosSemInteresse;
+	}
+
+	public List<Usuario> getUsuariosSemRecomendacao() {
+
+		ArrayList<Usuario> todosOsUsuarios = (ArrayList<Usuario>) new DAO<Usuario>(
+				Usuario.class).listaTodos();
+		ArrayList<Recomendacao> todosAsRecomendacoes = (ArrayList<Recomendacao>) new DAO<Recomendacao>(
+				Recomendacao.class).listaTodos();
+
+		ArrayList<Usuario> todosOsUsuariosSemRecomendacao = new ArrayList<Usuario>();
+		ArrayList<Usuario> todosOsUsuariosComRecomendacao = new ArrayList<Usuario>();
+		ArrayList<Interesse> todosOsInteressesComRecomendacao = new ArrayList<Interesse>();
+
+		for (Recomendacao r : todosAsRecomendacoes) {
+			if (!todosOsInteressesComRecomendacao.contains(r.getInteresse())) {
+				todosOsInteressesComRecomendacao.add(r.getInteresse());
+			}
+		}
+
+		System.out.println("Inter CR: "
+				+ todosOsInteressesComRecomendacao.size());
+
+		for (Interesse i : todosOsInteressesComRecomendacao) {
+			if (!todosOsUsuariosComRecomendacao.contains(i.getUsuario())) {
+				todosOsUsuariosComRecomendacao.add(i.getUsuario());
+			}
+		}
+
+		System.out.println("user CR: " + todosOsUsuariosComRecomendacao.size());
+		todosOsUsuarios.removeAll(todosOsUsuariosComRecomendacao);
+		todosOsUsuariosSemRecomendacao = todosOsUsuarios;
+
+		System.out.println("Tamanhooooooooooo SR: "
+				+ todosOsUsuariosSemRecomendacao.size());
+
+		return todosOsUsuariosSemRecomendacao;
 	}
 
 	public String gravar() {
