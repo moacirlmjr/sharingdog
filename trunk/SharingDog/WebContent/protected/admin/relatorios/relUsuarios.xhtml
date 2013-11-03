@@ -11,8 +11,9 @@
 
 	<ui:define name="conteudo">
 
-	<p:fieldset legend="Relatorio de Usuarios">
-			<p:dataTable value="#{usuarioBean.usuarios}" var="usuario" paginator="true" rows="7" style="text-align:center">
+		<p:fieldset legend="Relatorio de Usuarios">
+			<p:dataTable id="tb1" value="#{usuarioBean.usuarios}" var="usuario"
+				paginator="true" rows="7" style="text-align:center">
 				<p:column>
 					<f:facet name="header">Id</f:facet>
 					<h:outputText value="#{usuario.id}" />
@@ -39,6 +40,28 @@
 				</p:column>
 			</p:dataTable>
 		</p:fieldset>
+
+		<h:panelGrid columns="2">
+			<p:panel header="Exportar todos os dados">
+				<h:form>
+					<h:commandLink>
+						<p:graphicImage library="img" name="excel.png" />
+						<p:dataExporter type="xls" target="tb1" fileName="users" preProcessor="false" />
+					</h:commandLink>
+
+					<h:commandLink>
+						<p:graphicImage library="img" name="pdf.png" />
+						<p:dataExporter type="pdf" target="tb1" fileName="users" />
+					</h:commandLink>
+
+					<h:commandLink>
+						<p:graphicImage library="img" name="xml.png" />
+						<p:dataExporter type="xml" target="tb1" fileName="users" />
+					</h:commandLink>
+				</h:form>
+			</p:panel>
+
+		</h:panelGrid>
 	</ui:define>
 </ui:composition>
 </html>
