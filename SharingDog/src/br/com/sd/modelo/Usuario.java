@@ -26,7 +26,7 @@ public class Usuario implements Generic {
 	private String email;
 	private String telefone;
 	private String Twitter;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 	private String login;
@@ -39,14 +39,14 @@ public class Usuario implements Generic {
 
 	}
 
-	public Usuario(String nome, String email, String telefone, String twitter, Sexo sexo,
-			String login, String senha, Role role) {
+	public Usuario(String nome, String email, String telefone, String twitter,
+			Sexo sexo, String login, String senha, Role role) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
 		this.Twitter = twitter;
-		this.sexo=sexo;
+		this.sexo = sexo;
 		this.login = login;
 		this.senha = senha;
 		this.role = role;
@@ -97,7 +97,7 @@ public class Usuario implements Generic {
 	public void setTwitter(String twitter) {
 		Twitter = twitter;
 	}
-	
+
 	public Sexo getSexo() {
 		return sexo;
 	}
@@ -145,5 +145,22 @@ public class Usuario implements Generic {
 	public boolean isUserDoador() {
 		return (this.role.getRole() == "UsuarioDoador" || this.role.getId() == 3);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if ((obj instanceof Usuario) && ((Usuario) obj).getId().equals(this.getId())) { 
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode(){
+		return this.id.hashCode();
+		
+	}
+	
+	
 
 }
