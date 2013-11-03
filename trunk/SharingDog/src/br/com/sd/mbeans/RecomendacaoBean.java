@@ -11,9 +11,9 @@ import br.com.sd.modelo.Cachorro;
 import br.com.sd.modelo.Interesse;
 import br.com.sd.modelo.Recomendacao;
 import br.com.sd.modelo.Usuario;
-import br.com.sd.modelo.enumerator.InteresseStatus;
 import br.com.sd.modelo.enumerator.RecomendacaoStatus;
 import br.com.sd.util.CalendarUtil;
+import br.com.sd.util.JSFMessageUtil;
 import br.com.sd.util.LoginUtil;
 
 @ManagedBean
@@ -59,14 +59,46 @@ public class RecomendacaoBean {
 				Recomendacao.class).listaTodos();
 		ArrayList<Recomendacao> auxNovo = new ArrayList<Recomendacao>();
 		for (Recomendacao r : aux) {
-			if (r.getInteresse().getUsuario().getId() == u.getId()) {
-				if (r.getInteresse().getStatus() == InteresseStatus.ATIVO) {
+			if (r.getInteresse().getUsuario().equals(u)) {				
+					auxNovo.add(r);			
+			}
+		}
+		System.out.println("Entreeeeeeeeeeeeei: " + auxNovo.size());
+		return auxNovo;
+	}
+	
+	public List<Recomendacao> getRecomendacoesConfirmadasUsuario() {
+		Usuario u = LoginUtil.retornaUsuarioLogado();
+		ArrayList<Recomendacao> aux = (ArrayList<Recomendacao>) new DAO<Recomendacao>(
+				Recomendacao.class).listaTodos();
+		ArrayList<Recomendacao> auxNovo = new ArrayList<Recomendacao>();
+		for (Recomendacao r : aux) {
+			if (r.getInteresse().getUsuario().equals(u)) {
+				if (r.getStatus() == RecomendacaoStatus.CONFIRMADA) {
 					auxNovo.add(r);
 				}
 			}
 		}
+		System.out.println("Entreeeeeeeeeeeeei: " + auxNovo.size());
 		return auxNovo;
 	}
+	
+	public List<Recomendacao> getRecomendacoesInativasUsuario() {
+		Usuario u = LoginUtil.retornaUsuarioLogado();
+		ArrayList<Recomendacao> aux = (ArrayList<Recomendacao>) new DAO<Recomendacao>(
+				Recomendacao.class).listaTodos();
+		ArrayList<Recomendacao> auxNovo = new ArrayList<Recomendacao>();
+		for (Recomendacao r : aux) {
+			if (r.getInteresse().getUsuario().equals(u)) {
+				if (r.getStatus() == RecomendacaoStatus.INATIVA) {
+					auxNovo.add(r);
+				}
+			}
+		}
+		System.out.println("Entreeeeeeeeeeeeei: " + auxNovo.size());
+		return auxNovo;
+	}
+
 
 	public void gravar() {
 		Interesse inte = new DAO<Interesse>(Interesse.class).buscaPorId(this.interesseID);
@@ -79,18 +111,31 @@ public class RecomendacaoBean {
 
 	}
 
-	public void tornaConfirmada() {
+	public void tornarConfirmada() {
 		this.recomendacao.setStatus(RecomendacaoStatus.CONFIRMADA);
 		new DAO<Recomendacao>(Recomendacao.class).atualiza(this.recomendacao);
+		JSFMessageUtil.sendInfoMessageToUser("Recomendacao nr "
+				+ this.recomendacao.getId() + " alterado para Confirmada!");
 	}
 
-	public void tornaInativa() {
+	public void tornarInativa() {
 		this.recomendacao.setStatus(RecomendacaoStatus.INATIVA);
 		new DAO<Recomendacao>(Recomendacao.class).atualiza(this.recomendacao);
+		JSFMessageUtil.sendInfoMessageToUser("Recomendacao nr "
+				+ this.recomendacao.getId() + " alterado para Inativa!");
+	}
+	
+	public void tornarAtiva() {
+		this.recomendacao.setStatus(RecomendacaoStatus.ATIVA);
+		new DAO<Recomendacao>(Recomendacao.class).atualiza(this.recomendacao);
+		JSFMessageUtil.sendInfoMessageToUser("Recomendacao nr "
+				+ this.recomendacao.getId() + " alterado para Ativada!");
 	}
 
 	public void excluir() {
 		new DAO<Recomendacao>(Recomendacao.class).remove(this.recomendacao);
+		JSFMessageUtil.sendInfoMessageToUser("Recomendacao nr "
+				+ this.recomendacao.getId() + " excluido com sucesso!");
 	}
 	
 	

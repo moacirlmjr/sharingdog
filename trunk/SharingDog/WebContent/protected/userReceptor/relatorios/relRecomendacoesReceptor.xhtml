@@ -11,47 +11,94 @@
 
 	<ui:define name="conteudo">
 
+		<p:messages autoUpdate="true" />
+		<p:growl autoUpdate="true" />
+
 		<p:fieldset legend="Relatório de Recomendações">
 			<h:form id="formPrincipal">
 				<p:dataTable var="recomendacao"
 					value="#{recomendacaoBean.recomendacoesUsuario}" id="tabelaDados"
-					paginator="true" paginatorAlwaysVisible="true" rows="5" style="text-align:center">
+					paginator="true" paginatorAlwaysVisible="true" rows="53"
+					style="text-align:center">
 					<f:facet name="header">Recomendações Cadastradas</f:facet>
 
-					<p:column headerText="Data da Recomendacao">
-						<h:outputText value="#{recomendacao.dataRegistro.time}">
-							<f:convertDateTime pattern="dd/MM/yyyy" />
-						</h:outputText>
-					</p:column>
-
-					<p:column headerText="Data do Interesse">
+					<!-- <p:column headerText="Data Interesse">
 						<h:outputText value="#{recomendacao.interesse.dataRegistro.time}">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</h:outputText>
+					</p:column> -->
+
+					<p:column headerText="Data">
+						<h:outputText
+							value="#{recomendacao.dataRegistro.time}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
 					</p:column>
 
-					<p:column headerText="Raca de Interesse">
+					<p:column headerText="Raca">
 						<h:outputText
 							value="#{recomendacao.interesse.racasDeInteresse.raca}">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</h:outputText>
 					</p:column>
+					
+					<p:column headerText="Cachorro">
+						<h:outputText
+							value="#{recomendacao.cachorro.nome}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:column>
+					
+					<p:column headerText="Nome do dono">
+						<h:outputText
+							value="#{recomendacao.cachorro.dono.nome}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:column>
+					
+					<p:column headerText="Email">
+						<h:outputText
+							value="#{recomendacao.cachorro.dono.email}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:column>
+					
+					<p:column headerText="Telefone">
+						<h:outputText
+							value="#{recomendacao.cachorro.dono.telefone}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+					</p:column>
 
-					<p:dataTable var="Cachorro" value="#{recomendacao.cachorros}">
-						<p:column headerText="Nome do cachorro">
-							<h:outputText value="#{cachorro.nome}" />
-						</p:column>
-						<p:column headerText="Nome do dono">
-							<h:outputText value="#{cachorro.dono.nome}" />
-						</p:column>
-						<p:column headerText="Fone">
-							<h:outputText value="#{cachorro.dono.telefone}" />
-						</p:column>
-
-					</p:dataTable>
-
+					
 					<p:column headerText="Status">
 						<h:outputText value="#{recomendacao.status}" />
+					</p:column>
+
+					<p:column headerText="Ações">
+						<p:commandLink title="Confirmar Recomendação"
+							action="#{recomendacaoBean.tornarConfirmada}" ajax="false">
+							<p:graphicImage library="img" name="ok_icon.png" />
+							<f:setPropertyActionListener
+								target="#{recomendacaoBean.recomendacao}"
+								value="#{recomendacao}" />
+						</p:commandLink>
+
+						<p:commandLink title="Tornar Inativa"
+							action="#{recomendacaoBean.tornarInativa}" ajax="false">
+							<p:graphicImage library="img" name="edit_icon.png" />
+							<f:setPropertyActionListener
+								target="#{recomendacaoBean.recomendacao}"
+								value="#{recomendacao}" />
+						</p:commandLink>
+
+						<p:commandLink title="Excluir recomendacao" 
+							action="#{recomendacaoBean.excluir}" ajax="false">
+							<p:graphicImage library="img" name="delete_icon.png" />
+							<f:setPropertyActionListener
+								target="#{recomendacaoBean.recomendacao}"
+								value="#{recomendacao}" />
+						</p:commandLink>
 					</p:column>
 
 				</p:dataTable>

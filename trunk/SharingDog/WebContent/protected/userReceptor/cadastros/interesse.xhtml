@@ -19,7 +19,7 @@
 
 			<h:form>
 				<p:dataTable id="racas" var="raca" style="text-align:center"
-					value="#{racaBean.rdm}" paginator="true" rows="7"
+					value="#{racaBean.rdm}" paginator="true" rows="3"
 					selection="#{interesseBean.selectedRaca}">
 
 					<f:facet name="header">Escolha uma raça de interesse</f:facet>
@@ -33,7 +33,7 @@
 					</p:column>
 					<f:facet name="footer">
 						<p:commandButton value="Escolher" icon="ui-icon-disk"
-							action="#{interesseBean.gravar}">
+							action="#{interesseBean.gravar}" style="text-align:right">
 						</p:commandButton>
 					</f:facet>
 				</p:dataTable>
