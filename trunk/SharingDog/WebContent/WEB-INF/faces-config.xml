@@ -121,8 +121,8 @@
 			<redirect />
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>relatorioUsuariosSemInteresses</from-outcome>
-			<to-view-id>/protected/admin/relatorios/relUsuariosSemInteresse.jsf</to-view-id>
+			<from-outcome>relatorioUsuariosSemInteresse</from-outcome>
+			<to-view-id>/protected/admin/relatorios/relUsuariosSemInteresses.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>

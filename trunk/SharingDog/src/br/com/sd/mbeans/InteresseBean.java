@@ -62,6 +62,7 @@ public class InteresseBean {
 
 	}
 
+	
 	public void gravar() {
 		Usuario u = LoginUtil.retornaUsuarioLogado();
 		this.interesse.setRacasDeInteresse(this.selectedRaca);
@@ -69,7 +70,9 @@ public class InteresseBean {
 		this.interesse.setDataRegistro(CalendarUtil.retornaDiaDeHoje());
 		this.interesse.setStatus(InteresseStatus.ATIVO);
 		new DAO<Interesse>(Interesse.class).adiciona(this.interesse);
-		JSFMessageUtil.sendInfoMessageToUser("Interesse em " + this.interesse.getRacasDeInteresse().getRaca() + " gravado com sucesso!");
+		JSFMessageUtil.sendInfoMessageToUser("Interesse em "
+				+ this.interesse.getRacasDeInteresse().getRaca()
+				+ " gravado com sucesso!");
 	}
 
 	public void tornarInativo() {

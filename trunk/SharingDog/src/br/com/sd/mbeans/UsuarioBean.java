@@ -1,5 +1,6 @@
 package br.com.sd.mbeans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -8,6 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
 import br.com.sd.dao.DAO;
+import br.com.sd.modelo.Interesse;
 import br.com.sd.modelo.Role;
 import br.com.sd.modelo.Usuario;
 import br.com.sd.util.JSFMessageUtil;
@@ -45,6 +47,26 @@ public class UsuarioBean {
 		return new DAO<Usuario>(Usuario.class).listaTodos();
 	}
 
+	public List<Usuario> getUsuariosSemInteresse() {
+
+		ArrayList<Interesse> todosOsInteresse = (ArrayList<Interesse>) new DAO<Interesse>(
+				Interesse.class).listaTodos();
+		ArrayList<Usuario> todosOsUsuarios = (ArrayList<Usuario>) new DAO<Usuario>(
+				Usuario.class).listaTodos();
+
+		ArrayList<Usuario> todosOsUsuariosSemInteresse = new ArrayList<Usuario>();
+		ArrayList<Usuario> todosOsUsuariosComInteresse = new ArrayList<Usuario>();
+
+		for (Interesse i : todosOsInteresse) {
+			todosOsUsuariosComInteresse.add(i.getUsuario());
+		}
+			
+		todosOsUsuarios.removeAll(todosOsUsuariosComInteresse);
+		todosOsUsuariosSemInteresse = todosOsUsuarios;		
+
+		return todosOsUsuariosSemInteresse;
+	}
+
 	public String gravar() {
 		System.out.println("Gravando usuario " + this.usuario.getNome());
 		Role role = new DAO<Role>(Role.class).buscaPorId(roleID);
@@ -74,7 +96,7 @@ public class UsuarioBean {
 		this.usuario = new Usuario();
 		return "dadosDoUsuario";
 	}
-	
+
 	public Usuario getUsuarioLogado() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest) context
@@ -83,6 +105,5 @@ public class UsuarioBean {
 		this.usuario = user;
 		return this.usuario;
 	}
-
 
 }

@@ -11,8 +11,11 @@
 
 	<ui:define name="conteudo">
 
-	<p:fieldset legend="Relatorio de Usuarios">
-			<p:dataTable value="#{usuarioBean.usuarios}" var="usuario" paginator="true" rows="7" style="text-align:center">
+		<p:fieldset legend="Relatório de usuários sem recomendações">
+		
+			<p:dataTable value="#{usuarioBean.usuarios}" var="usuario"
+				paginator="true" rows="7" style="text-align:center">
+				
 				<p:column>
 					<f:facet name="header">Id</f:facet>
 					<h:outputText value="#{usuario.id}" />
@@ -37,7 +40,9 @@
 					<f:facet name="header">Perfil</f:facet>
 					<h:outputText value="#{usuario.role.role}" />
 				</p:column>
+				
 			</p:dataTable>
+			
 		</p:fieldset>
 	</ui:define>
 </ui:composition>
