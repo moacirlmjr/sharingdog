@@ -14,7 +14,7 @@
 		<p:fieldset legend="Meus Dados">
 			<h:form id="formPrincipal">
 				<p:dataTable var="usuario" value="#{usuarioBean.usuarioLogado}"
-					id="tabelaDados">
+					id="tabelaDados" style="text-align:center">
 					<f:facet name="header">Seus Dados Cadastrados</f:facet>
 
 					<p:column headerText="Nome">
@@ -27,6 +27,10 @@
 
 					<p:column headerText="Email">
 						<h:outputText value="#{usuario.email}" />
+					</p:column>
+					
+					<p:column headerText="Twitter">
+						<h:outputText value="#{usuario.twitter}" />
 					</p:column>
 
 					<p:column headerText="Login">
@@ -61,6 +65,8 @@
 						<p:inputText value="#{usuario.telefone}" />
 						<h:outputText value="Email" />
 						<p:inputText value="#{usuario.email}" />
+						<h:outputText value="Twitter" />
+						<p:inputText value="#{usuario.twitter}" />
 						<h:outputText value="Login" />
 						<p:inputText value="#{usuario.login}" />
 						<h:outputText value="Senha" />
