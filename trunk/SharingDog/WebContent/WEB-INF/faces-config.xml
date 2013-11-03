@@ -59,7 +59,7 @@
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>relRecomendacoes</from-outcome>
-			<to-view-id>/protected/userReceptor/relatorios/relRecomendacoes.jsf</to-view-id>
+			<to-view-id>/protected/userReceptor/relatorios/relRecomendacoesReceptor.jsf</to-view-id>
 			<redirect />
 		</navigation-case>	
 		
@@ -76,6 +76,11 @@
 			<to-view-id>/protected/userDonor/relatorios/relCachorrosUser.jsf</to-view-id>
 			<redirect />
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>relatorioInteressesDoador</from-outcome>
+			<to-view-id>/protected/userDonor/relatorios/relInteressesDoador.jsf</to-view-id>
+			<redirect />
+		</navigation-case>		
 		<navigation-case>
 			<from-outcome>dadosDoUsuarioDonor</from-outcome>
 			<to-view-id>/protected/userDonor/relatorios/relDadosUser.jsf</to-view-id>
