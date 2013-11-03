@@ -10,7 +10,6 @@ import br.com.sd.modelo.Recomendacao;
 import br.com.sd.modelo.Role;
 import br.com.sd.modelo.Usuario;
 import br.com.sd.modelo.enumerator.Sexo;
-import br.com.sd.security.SegurancaUtil;
 
 public class ModeloUtil {
 	
@@ -38,13 +37,12 @@ public class ModeloUtil {
 		Usuario userR = new Usuario("Usuario Receptor",
 				"receptor@sharingdog.com", "77665544", "@ReceptorSharingDog",  Sexo.Masculino,
 				"userR", "userR123", roleUserReceptor);
-		Usuario userD = new Usuario("Usuario Doados",
+		Usuario userD = new Usuario("Usuario Doador",
 				"doador@sharingdog.com", "77665544", "@DoadorSharingDog",  Sexo.Masculino,
-				"userD", "userD123", roleAdmin);
-		
+				"userD", "userD123", roleUserDoador);		
 		Usuario danyllo = new Usuario("Danyllo Wagner",
 				"danyllo_wagner@hotmail.com", "79009677", "@DanylloWagner", Sexo.Masculino,
-				"danyllo", SegurancaUtil.criptografar("danyllo123"), roleUserReceptor);
+				"danyllo", "danyllo123", roleUserReceptor);
 		Usuario anelise = new Usuario("Anelise Trigo",
 				"anelisecid@hotmail.com", "80339677", "@AneliseCid", Sexo.Feminino,
 				"anelise", "anelise123", roleUserReceptor);

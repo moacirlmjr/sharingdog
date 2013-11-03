@@ -55,15 +55,22 @@ public class UsuarioBean {
 		ArrayList<Usuario> todosOsUsuarios = (ArrayList<Usuario>) new DAO<Usuario>(
 				Usuario.class).listaTodos();
 
+		ArrayList<Usuario> todosOsUsuariosReceptores = new ArrayList<Usuario>();
 		ArrayList<Usuario> todosOsUsuariosSemInteresse = new ArrayList<Usuario>();
 		ArrayList<Usuario> todosOsUsuariosComInteresse = new ArrayList<Usuario>();
+		
+		for(Usuario u: todosOsUsuarios){
+			if(u.getRole().getId()==2){
+				todosOsUsuariosReceptores.add(u);
+			}
+		}
 
 		for (Interesse i : todosOsInteresse) {
 			todosOsUsuariosComInteresse.add(i.getUsuario());
 		}
 
-		todosOsUsuarios.removeAll(todosOsUsuariosComInteresse);
-		todosOsUsuariosSemInteresse = todosOsUsuarios;
+		todosOsUsuariosReceptores.removeAll(todosOsUsuariosComInteresse);
+		todosOsUsuariosSemInteresse = todosOsUsuariosReceptores;
 
 		return todosOsUsuariosSemInteresse;
 	}
@@ -77,7 +84,14 @@ public class UsuarioBean {
 
 		ArrayList<Usuario> todosOsUsuariosSemRecomendacao = new ArrayList<Usuario>();
 		ArrayList<Usuario> todosOsUsuariosComRecomendacao = new ArrayList<Usuario>();
+		ArrayList<Usuario> todosOsUsuariosReceptores = new ArrayList<Usuario>();
 		ArrayList<Interesse> todosOsInteressesComRecomendacao = new ArrayList<Interesse>();
+		
+		for(Usuario u: todosOsUsuarios){
+			if(u.getRole().getId()==2){
+				todosOsUsuariosReceptores.add(u);
+			}
+		}
 
 		for (Recomendacao r : todosAsRecomendacoes) {
 			if (!todosOsInteressesComRecomendacao.contains(r.getInteresse())) {
@@ -85,21 +99,15 @@ public class UsuarioBean {
 			}
 		}
 
-		System.out.println("Inter CR: "
-				+ todosOsInteressesComRecomendacao.size());
-
+		
 		for (Interesse i : todosOsInteressesComRecomendacao) {
 			if (!todosOsUsuariosComRecomendacao.contains(i.getUsuario())) {
 				todosOsUsuariosComRecomendacao.add(i.getUsuario());
 			}
 		}
 
-		System.out.println("user CR: " + todosOsUsuariosComRecomendacao.size());
-		todosOsUsuarios.removeAll(todosOsUsuariosComRecomendacao);
-		todosOsUsuariosSemRecomendacao = todosOsUsuarios;
-
-		System.out.println("Tamanhooooooooooo SR: "
-				+ todosOsUsuariosSemRecomendacao.size());
+		todosOsUsuariosReceptores.removeAll(todosOsUsuariosComRecomendacao);
+		todosOsUsuariosSemRecomendacao = todosOsUsuariosReceptores;	
 
 		return todosOsUsuariosSemRecomendacao;
 	}

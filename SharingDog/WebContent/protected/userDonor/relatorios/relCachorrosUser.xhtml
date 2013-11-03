@@ -12,8 +12,8 @@
 	<ui:define name="conteudo">
 
 		<p:fieldset legend="Relatorio de Cachorros">
-			<p:dataTable value="#{cachorroBean.cachorrosUsuario}" var="cachorro"
-				paginator="true" rows="4">
+			<p:dataTable value="#{cachorroBean.cachorrosUsuario}" var="cachorro" style="text-align:center"
+				paginator="true" rows="3">
 				<p:column>
 					<f:facet name="header">Identificador</f:facet>
 					<h:outputText value="#{cachorro.id}" />
@@ -39,6 +39,10 @@
 				<p:column>
 					<f:facet name="header">Sexo</f:facet>
 					<h:outputText value="#{cachorro.sexo}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">Imagem</f:facet>
+					<p:graphicImage value="/resources/img/cachorros/#{cachorro.raca.raca}.jpg" />
 				</p:column>
 			</p:dataTable>
 		</p:fieldset>

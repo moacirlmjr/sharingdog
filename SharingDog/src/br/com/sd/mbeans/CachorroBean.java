@@ -18,6 +18,7 @@ import br.com.sd.modelo.Usuario;
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Cachorro;
 import br.com.sd.modelo.Raca;
+import br.com.sd.util.JSFMessageUtil;
 
 @ManagedBean
 @RequestScoped
@@ -55,20 +56,20 @@ public class CachorroBean {
 				.findListResults(Cachorro.findAllCachorrosOrdenadosRaca);
 	}
 
-	public void validaDataInicio(FacesContext context, UIComponent component,
+	public void validaDataNascimento(FacesContext context, UIComponent component,
 			Object value) {
 
 		Date dataInicio = (Date) value;
 
 		Date hoje = (Date) Calendar.getInstance().getTime();
-		if (hoje.before(dataInicio)) {
+		if (hoje.after(dataInicio)) {
 			Calendar c = Calendar.getInstance();
 			c.setTimeInMillis(dataInicio.getTime());
 			c.add(Calendar.DAY_OF_YEAR, 1);
 			this.cachorro.setDataNascimento(c);
 		} else {
 			throw new ValidatorException(new FacesMessage(
-					"Data inicial eh menor ou igual a hoje"));
+					"Data de nascimento eh maior ou igual a hoje"));
 		}
 	}
 
@@ -83,7 +84,7 @@ public class CachorroBean {
 				Cachorro.findAllCachorrosUser, params);
 	}
 
-	public String gravar() {
+	public void gravar() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest) context
 				.getExternalContext().getRequest();
@@ -94,7 +95,7 @@ public class CachorroBean {
 		System.out.println("adicionando o cachorro" + this.cachorro.getNome()
 				+ "do doador" + this.cachorro.getDono().getNome());
 		new DAO<Cachorro>(Cachorro.class).adiciona(cachorro);
-		return "relatorioCachorros";
+		JSFMessageUtil.sendInfoMessageToUser(this.cachorro.getNome() + " adicionado com sucesso!!!");
 
 	}
 

@@ -38,7 +38,7 @@
 					<p:calendar id="dataNascimento"
 						value="#{cachorroBean.cachorro.dataNascimento.time}" required="true"
 						requiredMessage="Data de nascimento Obrigatória" pattern="dd/MM/yyyy"
-						validator="#{cachorroBean.validaDataInicio}" />
+						validator="#{cachorroBean.validaDataNascimento}" />
 
 					<h:outputLabel value="Sexo do animal: " for="sexo" />
 					<p:selectOneMenu name="selecaoSexo" id="sexo"
