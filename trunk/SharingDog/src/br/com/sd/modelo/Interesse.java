@@ -100,5 +100,21 @@ public class Interesse implements Generic {
 	public void setStatus(InteresseStatus status) {
 		this.status = status;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if ((obj instanceof Interesse) && ((Interesse) obj).getId().equals(this.getId())) { 
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	@Override
+	public int hashCode(){
+		return this.id.hashCode();
+		
+	}
+	
 
 }
