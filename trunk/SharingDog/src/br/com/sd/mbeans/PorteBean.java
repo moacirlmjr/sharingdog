@@ -3,14 +3,14 @@ package br.com.sd.mbeans;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Porte;
 import br.com.sd.util.JSFMessageUtil;
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class PorteBean {
 	
 	private Porte porte;
@@ -40,10 +40,7 @@ public class PorteBean {
 		new DAO<Porte>(Porte.class).adiciona(porte);
 		porte = new Porte();
 		JSFMessageUtil.sendInfoMessageToUser("Porte cadastrado com sucesso!!!");
-		//return "relatorioPortes";
-	}
-	
-	
+	}	
 
 }
 

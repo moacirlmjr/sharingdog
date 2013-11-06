@@ -20,15 +20,19 @@ import br.com.sd.modelo.interfaces.Generic;
 @Entity
 @NamedQueries(value = {
 		@NamedQuery(name = "Recomendacao.findAllRecomendacaoes", query = "select r from Recomendacao r order by dataRegistro desc"),
-		@NamedQuery(name = "Recomendacao.findAllRecomendacaoesUsuario", query = "select r from Recomendacao r order by dataRegistro desc") })
+		@NamedQuery(name = "Recomendacao.findAllRecomendacaoesUsuario", query = "select r from Recomendacao r order by dataRegistro desc"),
+		@NamedQuery(name = "Recomendacao.findAllRecomendacaoesAtivas", query = "select r from Recomendacao r where status = 'ATIVA' order by dataRegistro desc"),
+		@NamedQuery(name = "Recomendacao.findAllRecomendacaoesInativas", query = "select r from Recomendacao r where status = 'INATIVA' order by dataRegistro desc"),
+		@NamedQuery(name = "Recomendacao.findAllRecomendacaoesConfirmadas", query = "select r from Recomendacao r where status = 'CONFIRMADA' order by dataRegistro desc")})
 public class Recomendacao implements Generic{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	public static final String findAllRecomendacaoesUsuario = "Recomendacao.findAllRecomendacaoesUsuario";
 	public static final String findAllRecomendacaoes = "Recomendacao.findAllRecomendacaoes";
+	public static final String findAllRecomendacaoesAtivas = "Recomendacao.findAllRecomendacaoesAtivas";
+	public static final String findAllRecomendacaoesInativas = "Recomendacao.findAllRecomendacaoesInativas";
+	public static final String findAllRecomendacaoesConfirmadas = "Recomendacao.findAllRecomendacaoesConfirmadas";
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

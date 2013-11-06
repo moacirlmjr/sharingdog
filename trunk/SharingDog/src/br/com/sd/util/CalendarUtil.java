@@ -38,7 +38,7 @@ public class CalendarUtil {
 		return hoje;
 	}
 	
-	public static int getTotalDiasHospedagem(Calendar dataIni, Calendar dataFim){
+	public static int getTotalDias(Calendar dataIni, Calendar dataFim){
 		
 		DateTime datafim = new DateTime(dataFim.getTimeInMillis());
 		DateTime dataini = new DateTime(dataIni.getTimeInMillis());

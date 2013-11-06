@@ -14,7 +14,6 @@ import br.com.sd.modelo.Recomendacao;
 import br.com.sd.modelo.Role;
 import br.com.sd.modelo.Usuario;
 import br.com.sd.util.JSFMessageUtil;
-import br.com.sd.util.LoginUtil;
 
 @ManagedBean
 @RequestScoped
@@ -112,21 +111,7 @@ public class UsuarioBean {
 		return todosOsUsuariosSemRecomendacao;
 	}
 
-	public String gravar() {
-		System.out.println("Gravando usuario " + this.usuario.getNome());
-		Role role = new DAO<Role>(Role.class).buscaPorId(roleID);
-		this.usuario.setRole(role);
-		new DAO<Usuario>(Usuario.class).adiciona(this.usuario);
-		this.usuario = new Usuario();
-		Usuario user = LoginUtil.retornaUsuarioLogado();
-		if (user.isAdmin()) {
-			return "relatorioUsuarios";
-		} else {
-			return "login";
-		}
-
-	}
-
+	
 	public void gravarUsuario() {
 		System.out.println("Gravando usuario " + this.usuario.getNome());
 		Role role = new DAO<Role>(Role.class).buscaPorId(roleID);
