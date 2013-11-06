@@ -48,9 +48,19 @@ public class InteresseBean {
 		return new DAO<Interesse>(Interesse.class).listaTodos();
 	}
 
-	public List<Interesse> getInteressesAtuais() {
-		return new DAO<Interesse>(Interesse.class).listaTodos();
+	public List<Interesse> getInteressesAtivos() {
+		return new DAO<Interesse>(Interesse.class)
+				.findListResults(Interesse.findAllInteressesAtivos);
+	}
 
+	public List<Interesse> getInteressesAtendidos() {
+		return new DAO<Interesse>(Interesse.class)
+				.findListResults(Interesse.findAllInteressesAtendidos);
+	}
+
+	public List<Interesse> getInteressesInativos() {
+		return new DAO<Interesse>(Interesse.class)
+				.findListResults(Interesse.findAllInteressesAtivos);
 	}
 
 	public List<Interesse> getInteressesUsuario() {
@@ -77,29 +87,33 @@ public class InteresseBean {
 	public void tornarInativo() {
 		this.interesse.setStatus(InteresseStatus.INATIVO);
 		new DAO<Interesse>(Interesse.class).atualiza(this.interesse);
-		JSFMessageUtil.sendInfoMessageToUser("Interesse nr "
-				+ this.interesse.getId() + " alterado para Inativado!");
+		JSFMessageUtil.sendInfoMessageToUser("Interesse em "
+				+ this.interesse.getRacasDeInteresse().getRaca()
+				+ " alterado para Inativado!");
 	}
 
 	public void tornarAtendido() {
 		this.interesse.setStatus(InteresseStatus.ATENDIDO);
 		new DAO<Interesse>(Interesse.class).atualiza(this.interesse);
-		JSFMessageUtil.sendInfoMessageToUser("Interesse nr "
-				+ this.interesse.getId() + " alterado para Atendido!");
+		JSFMessageUtil.sendInfoMessageToUser("Interesse em "
+				+ this.interesse.getRacasDeInteresse().getRaca()
+				+ " alterado para Atendido!");
 
 	}
 
 	public void tornarAtivo() {
 		this.interesse.setStatus(InteresseStatus.ATIVO);
 		new DAO<Interesse>(Interesse.class).atualiza(this.interesse);
-		JSFMessageUtil.sendInfoMessageToUser("Interesse nr "
-				+ this.interesse.getId() + " alterado para Ativado!");
+		JSFMessageUtil.sendInfoMessageToUser("Interesse em "
+				+ this.interesse.getRacasDeInteresse().getRaca()
+				+ " alterado para Ativado!");
 	}
 
 	public void excluir() {
 		new DAO<Interesse>(Interesse.class).remove(this.interesse);
-		JSFMessageUtil.sendInfoMessageToUser("Interesse nr "
-				+ this.interesse.getId() + " excluido com sucesso!");
+		JSFMessageUtil.sendInfoMessageToUser("Interesse em "
+				+ this.interesse.getRacasDeInteresse().getRaca()
+				+ " excluido com sucesso!");
 
 	}
 

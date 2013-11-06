@@ -21,7 +21,10 @@ import br.com.sd.util.CalendarUtil;
 @Entity
 @NamedQueries(value = {
 		@NamedQuery(name = "Interesse.findAllInteresses", query = "select i from Interesse i order by usuario_id"),
-		@NamedQuery(name = "Interesse.findAllInteressesUser", query = "select i from Interesse i where usuario_id = :uid") })
+		@NamedQuery(name = "Interesse.findAllInteressesUser", query = "select i from Interesse i where usuario_id = :uid"),
+		@NamedQuery(name = "Interesse.findAllInteressesAtivos", query = "select i from Interesse i where status = 'ATIVO' order by dataRegistro desc"),
+		@NamedQuery(name = "Interesse.findAllInteressesInativos", query = "select i from Interesse i where status = 'INATIVO' order by dataRegistro desc"),
+		@NamedQuery(name = "Interesse.findAllInteressesAtendidos", query = "select i from Interesse i where status = 'ATENDIDO' order by dataRegistro desc")})
 public class Interesse implements Generic {
 
 	/**
@@ -29,6 +32,9 @@ public class Interesse implements Generic {
 	 */
 	private static final long serialVersionUID = 1L;
 	public static final String findAllInteresses = "Interesse.findAllInteresses";
+	public static final String findAllInteressesAtivos = "Interesse.findAllInteressesAtivos";
+	public static final String findAllInteressesInativos = "Interesse.findAllInteressesInativos";
+	public static final String findAllInteressesAtendidos = "Interesse.findAllInteressesAtendidos";
 	public static final String findAllInteressesUser = "Interesse.findAllInteressesUser";
 
 	@Id
