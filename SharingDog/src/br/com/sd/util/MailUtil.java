@@ -1,47 +1,52 @@
 package br.com.sd.util;
 
+import java.text.SimpleDateFormat;
+
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
+
+import br.com.sd.modelo.Interesse;
+import br.com.sd.modelo.Recomendacao;
+import br.com.sd.modelo.Usuario;
+
 
 
 public class MailUtil {
 
-	/*private static final String ACOOUNT_USER = "sharingdog";
+	private static final String ACOOUNT_USER = "sharingdog";
 	private static final String MAIL_USER = "sharingdog@gmail.com";
 	private static final String MAIL_PWD = "pucsharingdog";
-	private static final String MAIL_TITLE = "Relatório de Ocupacao";
+	private static final String MAIL_TITLE = "Informação";
 	private static final String MAIL_OWNER = "SharingDog";
 
 	@SuppressWarnings("deprecation")
-	public void enviaEmailSimples() throws EmailException {
+	public void enviaEmailBoasVindas(Usuario user) throws EmailException {
 
 		SimpleEmail email = new SimpleEmail();
 
 		try {
+			@SuppressWarnings("unused")
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
 			email.setDebug(true);
 			email.setHostName("smtp.gmail.com");
 			email.setAuthentication(MailUtil.ACOOUNT_USER, MailUtil.MAIL_PWD);
 			email.setSSL(true);
-			email.addTo(estadia.getUsuario().getEmail()); // pode ser qualquer
-															// email
-			email.setFrom(MailUtil.MAIL_USER); // serÃ¡ passado o email que vocÃª
-												// farÃ¡
-												// a autenticaÃ§Ã£o
+			email.addTo(user.getEmail()); 															
+			email.setFrom(MailUtil.MAIL_USER); 
 			email.setSubject(MailUtil.MAIL_TITLE + " - " + MailUtil.MAIL_OWNER);
 			email.setMsg("OlÃ¡, senhor "
-					+ estadia.getUsuario().getNome()
+					+ user.getNome()
 					+ "\n"
-					+ "AtravÃ©s deste email estamos relatando os dados da sua ocupaÃ§Ã£o no MyParis Hotel."
-					+ "\n" + "Seguem os dados: " + "\n \n" + "Quarto: "
-					+ estadia.getQuarto().getCategoria().getCategoria() + "\n"
-					+ "Data inicio: "
-					+ sdf.format(estadia.getDataInicio().getTime()) + "\n"
-					+ "Data fim: " + sdf.format(estadia.getDataFim().getTime())
-					+ "\n" + "Cama Extra: "
-					+ (estadia.isCamaExtra() == false ? "NÃ£o" : "Sim") + "\n"
-					+ "Valor Total: " + estadia.getValorTotal() + "\n" + "\n"
-					+ "O MyParis Hotel agradece sua preferÃªncia!!!" + "\n"
-					+ "Volte sempre!");
+					+ "Seja muito bem vindo ao Sharing Dog!!!"
+					+ "\n" + 
+					"Será uma grande satisfação realizar seu encontro com um dos nossos cachorros." 
+					+ "\n" +
+					"A partir de agora cadastre seus interesses e verifique sua conta periodicamente." 
+					+ "\n" +
+					"Qualquer dúvida, sugestão ou reclamação, entre em contato conosco."
+					+ "\n" +
+					"Até Breve!");
 			email.send();
 
 		} catch (EmailException e) {
@@ -50,5 +55,92 @@ public class MailUtil {
 
 		}
 	}
-*/
+	
+	
+	@SuppressWarnings("deprecation")
+	public void enviaEmailInteresse(Interesse interesse) throws EmailException {
+
+		SimpleEmail email = new SimpleEmail();
+
+		try {
+			@SuppressWarnings("unused")
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			Usuario user = interesse.getUsuario();
+			email.setDebug(true);
+			email.setHostName("smtp.gmail.com");
+			email.setAuthentication(MailUtil.ACOOUNT_USER, MailUtil.MAIL_PWD);
+			email.setSSL(true);
+			email.addTo(user.getEmail()); 															
+			email.setFrom(MailUtil.MAIL_USER); 
+			email.setSubject(MailUtil.MAIL_TITLE + " - " + MailUtil.MAIL_OWNER);
+			email.setMsg("Olá¡, senhor "
+					+ user.getNome()
+					+ "\n"
+					+ "Informamos que seu iteresse em " + interesse.getRacasDeInteresse().getRaca() 
+					+ "foi cadastrado com sucesso em nassa base de dados!"
+					+ "\n" + 
+					"Em breve estaremos enviando algumas sugestões com base na sua preferência." 
+					+ "\n" +
+					"Qualquer dúvida, sugestão ou reclamação, entre em contato conosco."
+					+ "\n" +
+					"Até Breve!");
+			email.send();
+
+		} catch (EmailException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	
+	@SuppressWarnings("deprecation")
+	public void enviaEmailRecomendacao(Recomendacao rec) throws EmailException {
+
+		SimpleEmail email = new SimpleEmail();
+
+		try {
+			@SuppressWarnings("unused")
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			Usuario user = rec.getInteresse().getUsuario();
+			email.setDebug(true);
+			email.setHostName("smtp.gmail.com");
+			email.setAuthentication(MailUtil.ACOOUNT_USER, MailUtil.MAIL_PWD);
+			email.setSSL(true);
+			email.addTo(user.getEmail()); 															
+			email.setFrom(MailUtil.MAIL_USER); 
+			email.setSubject(MailUtil.MAIL_TITLE + " - " + MailUtil.MAIL_OWNER);
+			email.setMsg("Olá¡, senhor "
+					+ user.getNome()
+					+ "\n"
+					+ "Temos um cachorro que pode ser do seu interesse! " 
+					+ "\n" + 
+					"Nome: " + rec.getCachorro().getNome() 
+					+ "\n" + 
+					"Raca: " + rec.getCachorro().getRaca() 
+					+ "\n" + 
+					"Sexo: " + rec.getCachorro().getSexo() 
+					+ "\n" + 
+					"Data de Nascimento: " + rec.getCachorro().getDataNascimento() 
+					+ "\n" 
+					+ "\n" + 		
+					"Abaixo segue os dados do dono do animal: "
+					+ "\n" + 
+					"Nome: " + rec.getCachorro().getDono().getNome() 
+					+ "\n" +
+					"Telefone: " + rec.getCachorro().getDono().getTelefone() 
+					+ "\n" +
+					"Email: " + rec.getCachorro().getDono().getEmail()
+					+ "\n \n" +
+					"Gostou do animal? entre em contato com o dono para os acertos finais!!!"
+					+ "\n" +
+					"Qualquer dúvida, sugestão ou reclamação, entre em contato conosco."
+					+ "\n" +
+					"Até Breve!");
+			email.send();
+
+		} catch (EmailException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+
 }
