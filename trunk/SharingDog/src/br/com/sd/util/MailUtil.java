@@ -16,7 +16,6 @@ public class MailUtil {
 	private static final String ACOOUNT_USER = "sharingdog";
 	private static final String MAIL_USER = "sharingdog@gmail.com";
 	private static final String MAIL_PWD = "pucsharingdog";
-	private static final String MAIL_TITLE = "Informação";
 	private static final String MAIL_OWNER = "SharingDog";
 
 	@SuppressWarnings("deprecation")
@@ -34,7 +33,7 @@ public class MailUtil {
 			email.setSSL(true);
 			email.addTo(user.getEmail()); 															
 			email.setFrom(MailUtil.MAIL_USER); 
-			email.setSubject(MailUtil.MAIL_TITLE + " - " + MailUtil.MAIL_OWNER);
+			email.setSubject("Boas Vindas" + " - " + MailUtil.MAIL_OWNER);
 			email.setMsg("OlÃ¡, senhor "
 					+ user.getNome()
 					+ "\n"
@@ -72,8 +71,8 @@ public class MailUtil {
 			email.setSSL(true);
 			email.addTo(user.getEmail()); 															
 			email.setFrom(MailUtil.MAIL_USER); 
-			email.setSubject(MailUtil.MAIL_TITLE + " - " + MailUtil.MAIL_OWNER);
-			email.setMsg("Olá¡, senhor "
+			email.setSubject("Cadastro de Interesse" + " - " + MailUtil.MAIL_OWNER);
+			email.setMsg("Olá, senhor "
 					+ user.getNome()
 					+ "\n"
 					+ "Informamos que seu iteresse em " + interesse.getRacasDeInteresse().getRaca() 
@@ -107,8 +106,8 @@ public class MailUtil {
 			email.setSSL(true);
 			email.addTo(user.getEmail()); 															
 			email.setFrom(MailUtil.MAIL_USER); 
-			email.setSubject(MailUtil.MAIL_TITLE + " - " + MailUtil.MAIL_OWNER);
-			email.setMsg("Olá¡, senhor "
+			email.setSubject("Recomendação de animal" + " - " + MailUtil.MAIL_OWNER);
+			email.setMsg("Olá, senhor "
 					+ user.getNome()
 					+ "\n"
 					+ "Temos um cachorro que pode ser do seu interesse! " 
