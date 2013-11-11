@@ -22,7 +22,7 @@ public class AgenteAnalisadorUsuarioBehavior extends TickerBehaviour{
 	@Override
 	protected void onTick() {
 		 Contexto contexto = new Contexto(new RecomendaBaseadoNoUsuarioEstrategia());
-	     contexto.executeEstrategia();	
-	}
+	     contexto.executeEstrategia();		
+	 }
 
 }
