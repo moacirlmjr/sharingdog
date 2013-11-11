@@ -9,6 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import br.com.sd.agents.IniciarAgentes;
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Usuario;
 import br.com.sd.util.JSFMessageUtil;
@@ -69,6 +70,7 @@ public class LoginBean {
 					.getExternalContext().getRequest();
 			request.getSession().setAttribute("usuario", user);
 			if (user.isAdmin()){
+				IniciarAgentes.init();
 				return "relatorioUsuarios";
 			}
 			else if (user.isUserReceptor()){

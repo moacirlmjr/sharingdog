@@ -14,7 +14,7 @@ public class AgenteAnalisadorUsuario extends Agent {
 		
 		super.setup();
 		
-		addBehaviour(new AgenteAnalisadorInteressesBehavior(this, 5000));
+		addBehaviour(new AgenteAnalisadorUsuarioBehavior(this, 5000));
 	}
 
 }

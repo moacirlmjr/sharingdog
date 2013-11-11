@@ -18,7 +18,7 @@ public class AgenteSugerirRecomendacao extends Agent{
 			super.setup();
 			
 			//86400000 milliseconds = 1 day
-			addBehaviour(new AgenteSugerirRecomendacaoBehavior(this,10000));
+			addBehaviour(new AgenteSugerirRecomendacaoBehavior(this,5000));
 		}
 	
 }
