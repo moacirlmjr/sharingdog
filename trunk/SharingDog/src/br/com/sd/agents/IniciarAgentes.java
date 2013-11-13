@@ -46,7 +46,6 @@ public class IniciarAgentes {
 		System.out.println("Inicializando agentes...");
 		Boot.main(new String[]{"-gui"});
 		
-		new IniciarAgentes(new AgenteSugerirRecomendacao(), "AgenteRecomendador", "poiContainer");
 		new IniciarAgentes(new AgenteAnalisadorUsuario(), "AgenteAnalisadorUsuario", "poiContainer");
 		new IniciarAgentes(new AgenteAnalisadorInteresses(), "AgenteAnalisadorInteresse", "poiContainer");
 	}
