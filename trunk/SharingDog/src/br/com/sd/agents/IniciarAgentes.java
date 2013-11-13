@@ -12,8 +12,13 @@ import jade.wrapper.StaleProxyException;
 
 
 public class IniciarAgentes {
+	
+	private static AgenteAnalisadorUsuario aau = new AgenteAnalisadorUsuario();
+	private static AgenteAnalisadorInteresses aai = new AgenteAnalisadorInteresses();
 
-	public IniciarAgentes() {	}
+	public IniciarAgentes() {	
+		
+	}
 	
 	public IniciarAgentes(Agent agent, String nameAgent, String nameContainer) {
 		setAgentInContainer(agent, nameAgent, nameContainer);
@@ -46,8 +51,8 @@ public class IniciarAgentes {
 		System.out.println("Inicializando agentes...");
 		Boot.main(new String[]{"-gui"});
 		
-		new IniciarAgentes(new AgenteAnalisadorUsuario(), "AgenteAnalisadorUsuario", "poiContainer");
-		new IniciarAgentes(new AgenteAnalisadorInteresses(), "AgenteAnalisadorInteresse", "poiContainer");
+		new IniciarAgentes(aau, "AgenteAnalisadorUsuario", "poiContainer");
+		new IniciarAgentes(aai, "AgenteAnalisadorInteresse", "poiContainer");
 	}
 	
 
