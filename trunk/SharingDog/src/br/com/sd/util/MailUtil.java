@@ -19,7 +19,7 @@ public class MailUtil {
 	private static final String MAIL_OWNER = "SharingDog";
 
 	@SuppressWarnings("deprecation")
-	public void enviaEmailBoasVindas(Usuario user) throws EmailException {
+	public static void enviaEmailBoasVindas(Usuario user) throws EmailException {
 
 		SimpleEmail email = new SimpleEmail();
 
@@ -57,7 +57,7 @@ public class MailUtil {
 	
 	
 	@SuppressWarnings("deprecation")
-	public void enviaEmailInteresse(Interesse interesse) throws EmailException {
+	public static void enviaEmailInteresse(Interesse interesse) throws EmailException {
 
 		SimpleEmail email = new SimpleEmail();
 
@@ -76,7 +76,7 @@ public class MailUtil {
 					+ user.getNome()
 					+ "\n"
 					+ "Informamos que seu iteresse em " + interesse.getRacasDeInteresse().getRaca() 
-					+ "foi cadastrado com sucesso em nassa base de dados!"
+					+ " foi cadastrado com sucesso em nassa base de dados!"
 					+ "\n" + 
 					"Em breve estaremos enviando algumas sugestões com base na sua preferência." 
 					+ "\n" +
@@ -92,7 +92,7 @@ public class MailUtil {
 	
 	
 	@SuppressWarnings("deprecation")
-	public void enviaEmailRecomendacao(Recomendacao rec) throws EmailException {
+	public static void enviaEmailRecomendacao(Recomendacao rec) throws EmailException {
 
 		SimpleEmail email = new SimpleEmail();
 

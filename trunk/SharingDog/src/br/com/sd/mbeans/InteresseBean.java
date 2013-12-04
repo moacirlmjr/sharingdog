@@ -7,6 +7,8 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import org.apache.commons.mail.EmailException;
+
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Interesse;
 import br.com.sd.modelo.Raca;
@@ -15,6 +17,7 @@ import br.com.sd.modelo.enumerator.InteresseStatus;
 import br.com.sd.util.CalendarUtil;
 import br.com.sd.util.JSFMessageUtil;
 import br.com.sd.util.LoginUtil;
+import br.com.sd.util.MailUtil;
 
 @ManagedBean
 @RequestScoped
@@ -79,6 +82,12 @@ public class InteresseBean {
 		this.interesse.setDataRegistro(CalendarUtil.retornaDiaDeHoje());
 		this.interesse.setStatus(InteresseStatus.ATIVO);
 		new DAO<Interesse>(Interesse.class).adiciona(this.interesse);
+		try {
+			MailUtil.enviaEmailInteresse(this.interesse);
+		} catch (EmailException e) {
+			System.out.println("Erro no cadastramento do interesse!!!");
+			e.printStackTrace();
+		}
 		JSFMessageUtil.sendInfoMessageToUser("Interesse em "
 				+ this.interesse.getRacasDeInteresse().getRaca()
 				+ " gravado com sucesso!");
