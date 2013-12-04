@@ -6,6 +6,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import org.apache.commons.mail.EmailException;
+
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Cachorro;
 import br.com.sd.modelo.Interesse;
@@ -16,6 +18,7 @@ import br.com.sd.modelo.enumerator.RecomendacaoStatus;
 import br.com.sd.util.CalendarUtil;
 import br.com.sd.util.JSFMessageUtil;
 import br.com.sd.util.LoginUtil;
+import br.com.sd.util.MailUtil;
 
 @ManagedBean
 @RequestScoped
@@ -211,6 +214,12 @@ public class RecomendacaoBean {
 			new DAO<Interesse>(Interesse.class).atualiza(i);
 			rec.setStatus(RecomendacaoStatus.ATIVA);
 			gravar(rec);
+			try {
+				MailUtil.enviaEmailRecomendacao(rec);
+			} catch (EmailException e) {
+				System.out.println("Deu erro no envio da Recomendacao!!!!");
+				e.printStackTrace();
+			}
 			rec = null;
 			
 		}

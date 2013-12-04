@@ -241,35 +241,110 @@ public class ModeloUtil {
 		
 		
 		Cachorro yankee = new Cachorro("Yankee", pastorAlemao, edson, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
-		Cachorro baleia = new Cachorro("baleia", pastorAlemao, roberta, RetornoDataUtil.getRandomDataNascimento(), Sexo.Feminino);
+		Cachorro baleia = new Cachorro("baleia", pastorAlemao, userD, RetornoDataUtil.getRandomDataNascimento(), Sexo.Feminino);
 		Cachorro tonhao = new Cachorro("Tonhão", saoBernado, dorgival, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
 		Cachorro bilola = new Cachorro("Bilola", saoBernado, jairo, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
 		
+		Cachorro pingo = new Cachorro("Pingo", chihuahua, monique, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		Cachorro suruma = new Cachorro("Suruma", pitbull, elizabet, RetornoDataUtil.getRandomDataNascimento(), Sexo.Feminino);
+		Cachorro viola = new Cachorro("Viola", bulldog, felipe, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		Cachorro mina = new Cachorro("mina", yorkshire, luis, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		
+		Cachorro relogio = new Cachorro("relogio", shitsu, nilton, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		Cachorro rex = new Cachorro("rex", basset, elizabet, RetornoDataUtil.getRandomDataNascimento(), Sexo.Feminino);
+		Cachorro tupa = new Cachorro("Tupã", pinscher, joaozao, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		Cachorro toy = new Cachorro("toy", bullmastiff, gabriela, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		
+		Cachorro dollar = new Cachorro("dollar", Beagle, jairo, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		Cachorro tina = new Cachorro("tina", foxPaulista, josefa, RetornoDataUtil.getRandomDataNascimento(), Sexo.Feminino);
+		Cachorro pepe = new Cachorro("pepe", goldenRetrieve, virginia, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		Cachorro junior = new Cachorro("junior", dalmata, gabriela, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		
+		Cachorro teco = new Cachorro("dollar", dogAlemao, mauro, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		Cachorro zilu = new Cachorro("zilu", akita, antonio, RetornoDataUtil.getRandomDataNascimento(), Sexo.Feminino);
+		Cachorro mel = new Cachorro("mel", cockerSpaniel, rodrigo, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		Cachorro zizo = new Cachorro("zizo", schnauzer, gabriela, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		
+		Cachorro boteco = new Cachorro("boteco", yorkshire, emanuele, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		Cachorro timbu = new Cachorro("timbu", viralatap, hadson, RetornoDataUtil.getRandomDataNascimento(), Sexo.Feminino);
+		Cachorro caco = new Cachorro("caco", poodle, mauricio, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		Cachorro chico = new Cachorro("chico", labrador, dorgival, RetornoDataUtil.getRandomDataNascimento(), Sexo.Masculino);
+		
+			
 		cachorros.add(yankee);
 		cachorros.add(baleia);
 		cachorros.add(tonhao);
 		cachorros.add(bilola);
 		
+		cachorros.add(pingo);
+		cachorros.add(suruma);
+		cachorros.add(viola);
+		cachorros.add(mina);
+		
+		cachorros.add(relogio);
+		cachorros.add(rex);
+		cachorros.add(tupa);
+		cachorros.add(toy);
+		
+		cachorros.add(dollar);
+		cachorros.add(tina);
+		cachorros.add(pepe);
+		cachorros.add(junior);
+				
+		cachorros.add(teco);
+		cachorros.add(zilu);
+		cachorros.add(mel);
+		cachorros.add(zizo);
+		
+		cachorros.add(boteco);
+		cachorros.add(timbu);
+		cachorros.add(caco);
+		cachorros.add(chico);
+		
+		
+		
 		Interesse i1 = new Interesse(maria, pinscher);
 		Interesse i2 = new Interesse(gabriela, poodle);
 		Interesse i3 = new Interesse(danyllo, pastorAlemao);
-		Interesse i4 = new Interesse(danyllo, saoBernado);
+		Interesse i4 = new Interesse(danyllo, saoBernado);		
+		Interesse i5 = new Interesse(roberto, pinscher);
+		Interesse i6 = new Interesse(roberto, poodle);
+		Interesse i7 = new Interesse(danyllo, pinscher);
+		Interesse i8 = new Interesse(danyllo, viralatap);		
+		Interesse i9 = new Interesse(userR, shitsu);
+		Interesse i10 = new Interesse(userR, poodle);
+		Interesse i11 = new Interesse(anelise, labrador);
+		Interesse i12 = new Interesse(anelise, dogAlemao);
 		
 		interesses.add(i1);
 		interesses.add(i2);
 		interesses.add(i3);
 		interesses.add(i4);
+		interesses.add(i5);
+		interesses.add(i6);
+		interesses.add(i7);
+		interesses.add(i8);
+		interesses.add(i9);
+		interesses.add(i10);
+		interesses.add(i11);
+		interesses.add(i12);
 		
 		
 		
-		Recomendacao r1 = new Recomendacao(i3, yankee);
+		/*Recomendacao r1 = new Recomendacao(i3, yankee);
 		Recomendacao r2 = new Recomendacao(i3, baleia);
+		Recomendacao r3 = new Recomendacao(i9, relogio);
+		Recomendacao r4 = new Recomendacao(i10, caco);
+		Recomendacao r5 = new Recomendacao(i7, tupa);
+		Recomendacao r6 = new Recomendacao(i8, timbu);
+				
+		
 		recomendacoes.add(r1);
 		recomendacoes.add(r2);
-
-
-
-		
+		recomendacoes.add(r3);
+		recomendacoes.add(r4);
+		recomendacoes.add(r5);
+		recomendacoes.add(r6);*/	
 		
 		
 	}

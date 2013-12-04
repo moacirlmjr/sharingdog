@@ -1,5 +1,4 @@
 package br.com.sd.agents;
-
 import jade.core.Agent;
 import jade.core.behaviours.TickerBehaviour;
 import br.com.sd.agents.strategies.Contexto;

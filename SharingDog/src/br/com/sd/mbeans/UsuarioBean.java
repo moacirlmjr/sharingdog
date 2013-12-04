@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.mail.EmailException;
 
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Interesse;
@@ -14,9 +16,10 @@ import br.com.sd.modelo.Recomendacao;
 import br.com.sd.modelo.Role;
 import br.com.sd.modelo.Usuario;
 import br.com.sd.util.JSFMessageUtil;
+import br.com.sd.util.MailUtil;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class UsuarioBean {
 
 	private Usuario usuario;
@@ -117,8 +120,15 @@ public class UsuarioBean {
 		Role role = new DAO<Role>(Role.class).buscaPorId(roleID);
 		this.usuario.setRole(role);
 		new DAO<Usuario>(Usuario.class).adiciona(this.usuario);
-		this.usuario = new Usuario();
+		
 		JSFMessageUtil.sendInfoMessageToUser("Usuário Gravado com sucesso!!!");
+		try {
+			MailUtil.enviaEmailBoasVindas(usuario);
+		} catch (EmailException e) {
+			System.out.println("Não conseguiu enviar email de boas vindas!!!");
+			e.printStackTrace();
+		}
+		this.usuario = new Usuario();
 	}
 
 	public String atualizaDados() {
