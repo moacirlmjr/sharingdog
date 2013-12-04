@@ -114,13 +114,11 @@ public class MailUtil {
 					+ "\n" + 
 					"Nome: " + rec.getCachorro().getNome() 
 					+ "\n" + 
-					"Raca: " + rec.getCachorro().getRaca() 
+					"Raca: " + rec.getCachorro().getRaca().getRaca() 
 					+ "\n" + 
 					"Sexo: " + rec.getCachorro().getSexo() 
 					+ "\n" + 
-					"Data de Nascimento: " + rec.getCachorro().getDataNascimento() 
-					+ "\n" 
-					+ "\n" + 		
+					  "\n" + 		
 					"Abaixo segue os dados do dono do animal: "
 					+ "\n" + 
 					"Nome: " + rec.getCachorro().getDono().getNome() 
