@@ -39,6 +39,9 @@
 					<p:menuitem value="Recomendações" action="relatorioRecomendacoes" />
 					<p:menuitem value="Interesses" action="relatorioInteresses" />
 				</p:submenu>
+				<p:submenu label="Ação">
+					<p:menuitem value="Gerar Recomendacao" action="#{recomendacaoBean.iniciarAgentes}" />
+				</p:submenu>
 				<p:submenu label="Sair">
 					<p:menuitem value="Finalizar sessão" action="#{loginBean.logOut}" />
 				</p:submenu>

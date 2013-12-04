@@ -138,6 +138,56 @@ public class MailUtil {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	
+	@SuppressWarnings("deprecation")
+	public static void enviaEmailAvisoAoDono(Recomendacao rec) throws EmailException {
+
+		SimpleEmail email = new SimpleEmail();
+
+		try {
+			@SuppressWarnings("unused")
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			Usuario user = rec.getInteresse().getUsuario();
+			email.setDebug(true);
+			email.setHostName("smtp.gmail.com");
+			email.setAuthentication(MailUtil.ACOOUNT_USER, MailUtil.MAIL_PWD);
+			email.setSSL(true);
+			email.addTo(user.getEmail()); 															
+			email.setFrom(MailUtil.MAIL_USER); 
+			email.setSubject("Recomendação de animal" + " - " + MailUtil.MAIL_OWNER);
+			email.setMsg("Olá, senhor "
+					+ user.getNome()
+					+ "\n"
+					+ "Estou interesado em seu cachorro: " 
+					+ "\n" + 
+					"Nome: " + rec.getCachorro().getNome() 
+					+ "\n" + 
+					"Raca: " + rec.getCachorro().getRaca().getRaca() 
+					+ "\n" + 
+					"Sexo: " + rec.getCachorro().getSexo() 
+					+ "\n" + 
+					  "\n" + 		
+					"Abaixo segue meus dados para contato: "
+					+ "\n" + 
+					"Nome: " + rec.getInteresse().getUsuario().getNome() 
+					+ "\n" +
+					"Telefone: " + rec.getInteresse().getUsuario().getTelefone()  
+					+ "\n" +
+					"Email: " + rec.getInteresse().getUsuario().getEmail()
+					+ "\n \n" +
+					"Entre em contato comigo assim que possível!!!"
+					+ "\n" +
+					"Muito grato pela atenção."
+					+ "\n" +
+					"Até Breve!");
+			email.send();
+
+		} catch (EmailException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 
 
 }
