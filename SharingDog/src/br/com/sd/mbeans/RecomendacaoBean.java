@@ -8,6 +8,7 @@ import javax.faces.bean.RequestScoped;
 
 import org.apache.commons.mail.EmailException;
 
+import br.com.sd.agents.IniciarAgentes;
 import br.com.sd.dao.DAO;
 import br.com.sd.modelo.Cachorro;
 import br.com.sd.modelo.Interesse;
@@ -133,6 +134,12 @@ public class RecomendacaoBean {
 
 	public void tornarConfirmada() {
 		this.recomendacao.setStatus(RecomendacaoStatus.CONFIRMADA);
+		try {
+			MailUtil.enviaEmailAvisoAoDono(this.recomendacao);
+		} catch (EmailException e) {
+			System.out.println("Erro no envio de email ao don do animal");
+			e.printStackTrace();
+		}
 		new DAO<Recomendacao>(Recomendacao.class).atualiza(this.recomendacao);
 		JSFMessageUtil.sendInfoMessageToUser("Recomendacao ao cachorro"
 				+ this.recomendacao.getCachorro().getNome()
@@ -227,4 +234,12 @@ public class RecomendacaoBean {
 		
 
 	}
+	
+	public void iniciarAgentes(){
+		System.out.println("Iniciando os Agentes");		
+		IniciarAgentes.init();
+		System.out.println("Agentes Criados");		
+	}
+	
+	
 }
